@@ -7,7 +7,8 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,400..800&family=Gothic+A1:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,400..800&family=Gothic+A1:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 /* Layout: poster-style single page. Giant condensed name → lime ticker → hero triptych of product shots →
    figures → brands → services → SELECTED WORK ticker → filterable work grid → contact. Light only, by choice. */
@@ -181,7 +182,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .vbar{box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax)}
 .zt figure{margin:0}
 .vbody.case{max-width:1200px;padding-top:0}
-.zt{--zb:#0167c5;--zy:#f3ec6c;--zw:#fbfaf6;--zi:#0f1a2b;color:var(--zi)}
+.zt{--zb:#0085ca;--zy:#f3ec6d;--zw:#fbfaf6;--zi:#0f1a2b;color:var(--zi)}
 .zt section{padding-block:72px}
 .zt .eyebrow{font-family:var(--wide);font-variation-settings:"wdth" 115;font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--zb)}
 .zt h2{font-weight:700;font-size:clamp(30px,4.4vw,58px);line-height:1.08;letter-spacing:-.03em;margin:14px 0 0;word-break:keep-all}
@@ -227,6 +228,40 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .zt-colors b{font-family:var(--wide);font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(36px,5vw,72px);line-height:.9}
 .zt-colors b small{font-size:.4em;margin-left:2px}
 .zt-colors span{font-family:var(--mono);font-size:12px;line-height:1.5}
+.zt-name{padding-top:24px!important}
+.zt-zigtag{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:22px}
+.zt-zigtag>div{border-top:2px solid var(--zi);padding-top:14px}
+.zt-zigtag b{display:block;font-family:var(--wide);font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(56px,9vw,132px);line-height:.9;letter-spacing:-.02em}
+.zt-zigtag>div:last-child b{color:var(--zb)}
+.zt-zigtag p{margin-top:16px}
+.zt blockquote{margin:48px 0 0;font-size:clamp(24px,3.2vw,42px);font-weight:700;line-height:1.3;letter-spacing:-.03em;word-break:keep-all}
+.zt blockquote em{font-style:normal;background:var(--zy);padding:0 .12em}
+.zt-sub{margin-top:56px;border-top:1px solid #d6d9de;padding-top:16px}
+.zt-sub .k{display:block;font-family:var(--wide);font-variation-settings:"wdth" 115;font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7a8291;margin-bottom:18px}
+.zt .cap{font-size:13.5px;margin-top:12px;color:#5b6270}
+.zt-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.zt-two img,.zt-sub>img{background:#fff;border:1px solid #e3e5e8}
+.zt-sub>img.lowres{max-width:520px}
+.zt-lineup img.lowres{max-width:1100px}
+.zt-lineup img{max-width:none}
+.zt-slogan{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px 40px;align-items:center;background:var(--zb);color:#fff;padding:clamp(24px,4vw,48px)}
+.zt-slogan b{font-family:var(--wide);font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(28px,4.4vw,60px);line-height:.95;letter-spacing:-.01em}
+.zt-slogan p{color:#e6f1fa;max-width:46ch}
+.zt-type .row{display:grid;grid-template-columns:200px minmax(0,1fr) 260px;gap:12px 24px;align-items:center;padding:20px 0;border-bottom:1px solid #d6d9de}
+.zt-type .nm{font-weight:700;font-size:14px}
+.zt-type .sp{font-size:clamp(24px,3.4vw,44px);line-height:1.15;letter-spacing:-.02em;word-break:keep-all}
+.zt-type .sp-note{font-size:15px;color:#7a8291}
+.zt-type .sp-img{max-height:80px;width:auto;max-width:100%}
+.zt-type small{font-size:12.5px;color:#5b6270;line-height:1.6;word-break:keep-all}
+.zt-sigs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 16px;margin-top:36px}
+.zt-sig b{display:block;font-family:var(--wide);font-variation-settings:"wdth" 110;font-weight:700;font-size:13px;letter-spacing:.02em;margin:12px 0 10px}
+.zt-sig-im{aspect-ratio:1/1;overflow:hidden;background:#f2f2ef}
+.zt-sig-im img{width:100%;height:100%;object-fit:cover}
+.zt-sig-ph{width:100%;height:100%;opacity:.85}
+.zt-chips{display:flex;flex-direction:column;gap:6px}
+.zt-chips span{display:grid;grid-template-columns:22px auto;column-gap:10px;align-items:center;font-family:var(--mono);font-size:12px}
+.zt-chips i{grid-row:span 2;width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+.zt-chips small{color:#7a8291;font-size:10.5px}
 .zt-before{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;margin-top:28px;scrollbar-width:thin}
 .zt-before figure{flex:0 0 240px;margin:0}
 .zt-before figcaption{font-size:12px;color:#6b7280;margin-top:8px}
@@ -252,6 +287,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .zt-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 16px}
   .zt-row .n{grid-column:1/-1}
   .zt-ba{grid-template-columns:minmax(0,1fr);gap:32px}
+  .zt-zigtag,.zt-two{grid-template-columns:minmax(0,1fr)}
+  .zt-slogan{grid-template-columns:minmax(0,1fr)}
+  .zt-type .row{grid-template-columns:minmax(0,1fr);gap:6px}
+  .zt-sigs{grid-template-columns:repeat(2,minmax(0,1fr))}
+
   .zt-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .zt-thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}
   .zt-apply{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -415,6 +455,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <script>
 /* 작업별 이미지 목록 (images/<id>/ 폴더). 빌드할 때 자동으로 채워집니다. */
 const MEDIA = {"s6":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"],"cover":"cover.jpg"},"1686e21c691028":{"files":["1.jpg","2.jpg","3.mp4","4.mp4","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg"],"cover":"cover.jpg"},"16a006849402b6":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.mp4","9.jpg","10.jpg","11.jpg","12.jpg"],"cover":"cover.jpg"},"16849359d70e30":{"files":["1.jpg","2.mp4","3.mp4","4.mp4","5.jpg","6.jpg","7.mp4","8.jpg","9.jpg","10.mp4","11.jpg","12.mp4","13.jpg","14.mp4","15.mp4","16.jpg","17.mp4","18.jpg","19.jpg","20.jpg"],"cover":"cover.jpg"},"16a006a6c04570":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.jpg","9.mp4","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg","15.jpg"],"cover":"cover.jpg"},"167ee2a94a1ebf":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.mp4","7.mp4","8.jpg","9.jpg","10.mp4","11.jpg","12.jpg","13.mp4","14.jpg","15.jpg","16.jpg"],"cover":"cover.jpg"},"167343f4383b06":{"files":["1.jpg"],"cover":"cover.jpg"},"15":{"files":["1.mp4","2.jpg","3.mp4","4.jpg","5.mp4","6.mp4","7.mp4","8.mp4","9.jpg","10.mp4","11.mp4","12.jpg","13.mp4","14.jpg","15.mp4","16.mp4","17.mp4","18.jpg","19.mp4","20.mp4","21.mp4","22.jpg","23.jpg","24.jpg","25.jpg","26.jpg"],"cover":"cover.mp4"},"167b3f7d23c45e":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.mp4","9.jpg","10.jpg","11.mp4","12.jpg","13.jpg","14.mp4","15.jpg","16.jpg"],"cover":"cover.jpg"},"pdrn":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.jpg","9.mp4","10.jpg","11.jpg","12.jpg","13.jpg","14.mp4","15.mp4","16.mp4","17.jpg"],"cover":"cover.jpg"},"1676df7093a3ac":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.mp4","9.jpg","10.mp4","11.mp4","12.mp4","13.jpg","14.jpg","15.jpg","16.jpg","17.jpg"],"cover":"cover.jpg"},"164be284fb133c":{"files":["1.jpg","2.jpg","3.mp4","4.jpg","5.jpg","6.jpg","7.mp4","8.mp4","9.jpg","10.jpg","11.mp4","12.jpg","13.jpg","14.jpg","15.jpg","16.jpg"],"cover":"cover.jpg"},"1648931ace7d65":{"files":["1.jpg","2.mp4","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.mp4","9.mp4","10.jpg","11.mp4","12.mp4","13.mp4","14.mp4","15.mp4","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg"],"cover":"cover.jpg"},"1648927124daaa":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.mp4","7.mp4","8.jpg","9.jpg"],"cover":"cover.jpg"},"166e22345e4d5a":{"files":["1.jpg","2.jpg","3.jpg","4.mp4","5.jpg","6.mp4","7.jpg","8.jpg","9.mp4","10.mp4","11.mp4","12.jpg","13.mp4","14.mp4","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg"],"cover":"cover.jpg"},"164897cae7a2e5":{"files":["1.jpg","2.jpg","3.jpg","4.mp4","5.jpg","6.mp4","7.mp4","8.mp4","9.jpg","10.jpg","11.jpg"],"cover":"cover.jpg"},"qr":{"files":["1.jpg","2.jpg","3.jpg","4.mp4","5.jpg","6.mp4","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg"],"cover":"cover.jpg"},"164891d2490d05":{"files":["1.mp4","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.mp4","8.jpg","9.mp4","10.mp4","11.mp4","12.mp4","13.jpg","14.mp4","15.mp4","16.mp4","17.jpg","18.mp4","19.mp4","20.jpg","21.jpg","22.jpg","23.jpg","24.jpg"],"cover":"cover.jpg"},"164892ea542d85":{"files":["1.jpg","2.mp4","3.mp4","4.mp4","5.jpg","6.mp4","7.jpg","8.mp4","9.mp4","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg"],"cover":"cover.jpg"},"16489787d5c37e":{"files":["1.jpg"],"cover":"cover.jpg"},"16489795da99a6":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.mp4","12.jpg","13.jpg","14.mp4","15.jpg","16.jpg","17.jpg","18.mp4","19.mp4","20.jpg","21.jpg","22.jpg"],"cover":"cover.jpg"},"1648930454b45f":{"files":["1.jpg","2.jpg","3.mp4","4.jpg","5.mp4","6.jpg","7.jpg","8.mp4","9.jpg","10.jpg","11.mp4","12.jpg","13.mp4","14.mp4","15.jpg","16.jpg","17.jpg","18.jpg"],"cover":"cover.jpg"},"1648977a615f5c":{"files":["1.jpg"],"cover":"cover.jpg"},"164897e0c69b70":{"files":["1.mp4","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.mp4","9.mp4","10.mp4","11.jpg","12.jpg","13.mp4","14.jpg","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg"],"cover":"cover.jpg"},"11":{"files":[],"cover":"cover.jpg"},"166e225d1cf6d8":{"files":["1.jpg"],"cover":"cover.jpg"},"1-1":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"166daeed1d55ce":{"files":["1.jpg"],"cover":"cover.jpg"},"166daee973098d":{"files":["1.jpg"],"cover":"cover.jpg"},"166daee2a595e1":{"files":["1.jpg"],"cover":"cover.jpg"},"164894148dfdee":{"files":["1.jpg"],"cover":"cover.jpg"},"164892c0440ddd":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.mp4","7.mp4","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.mp4","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg"],"cover":"cover.jpg"},"164892874dffc8":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.mp4","7.jpg","8.jpg","9.jpg","10.jpg","11.mp4","12.mp4","13.jpg","14.mp4","15.mp4","16.mp4","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg","23.jpg","24.jpg"],"cover":"cover.jpg"},"164893d31e30f9":{"files":["1.mp4","2.jpg","3.jpg","4.jpg"],"cover":"cover.mp4"},"16489419522500":{"files":["1.mp4","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"],"cover":"cover.mp4"},"164897b5a7b991":{"files":["1.jpg","2.jpg","3.jpg","4.mp4","5.jpg","6.jpg","7.mp4","8.jpg","9.mp4","10.jpg","11.jpg","12.jpg","13.jpg","14.mp4","15.mp4","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg"],"cover":"cover.jpg"},"164897a9a78c3b":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.mp4","8.mp4","9.mp4","10.jpg","11.mp4","12.jpg","13.jpg","14.jpg","15.jpg","16.jpg","17.jpg"],"cover":"cover.jpg"},"164893c0ded880":{"files":["1.jpg"],"cover":"cover.jpg"},"1648943edd82df":{"files":["1.mp4"],"cover":"cover.mp4"},"164893410950c6":{"files":["1.jpg"],"cover":"cover.jpg"},"164893bafb6d02":{"files":["1.jpg"],"cover":"cover.jpg"},"164893c3b75675":{"files":["1.mp4","2.jpg","3.mp4","4.jpg","5.jpg"],"cover":"cover.jpg"},"16489438e82a29":{"files":["1.jpg"],"cover":"cover.jpg"},"16489410c62f43":{"files":["1.jpg"],"cover":"cover.jpg"},"1648940d5cb47e":{"files":[],"cover":"cover.jpg"},"164894057d1281":{"files":["1.jpg"],"cover":"cover.jpg"},"1648940051cda3":{"files":["1.jpg"],"cover":"cover.jpg"},"164893f7001ecd":{"files":["1.jpg"],"cover":"cover.jpg"},"164893f2dbfb6e":{"files":["1.jpg"],"cover":"cover.jpg"},"164893e44d421a":{"files":[],"cover":"cover.jpg"},"164893be032370":{"files":["1.jpg"],"cover":"cover.jpg"},"2411-3":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/UnpqiwE9cug/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"164893eaf6337f":{"files":["1.jpg"],"cover":"cover.jpg"},"2412-event":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/3a5AyTMD_Qz/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"16489421d440b0":{"files":["1.mp4","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg"],"cover":"cover.mp4"},"2411-2":{"files":["1.jpg",{"video":"https://www-ccv.adobe.io/v1/player/ccv/79T6MEvRIbU/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"2412-sns":{"files":["1.jpg"],"cover":"cover.jpg"},"2411-1":{"files":["1.jpg"],"cover":"cover.jpg"},"16734430d09262":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/E4WXMd_iiPh/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"1673443706d70d":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/UTQxQdXwiDk/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"1673442534a46c":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/GPy2_v7NZny/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"16734413808e26":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/PFSKs-ftApI/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"1673442b23ea4b":{"files":["1.mp4"],"cover":"cover.mp4"},"164893da7ea8b6":{"files":["1.mp4","2.jpg","3.jpg","4.mp4","5.jpg","6.jpg","7.jpg"],"cover":"cover.mp4"},"moo100-sns-1":{"files":["1.jpg"],"cover":"cover.jpg"},"167343ff104013":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"moo100-sns-3":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/2T3RJACZbQp/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"1673440cd02d0a":{"files":["1.mp4"],"cover":"cover.mp4"},"16a954a61a892c":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"],"cover":"cover.jpg"},"moo100-sns-2":{"files":["1.jpg"],"cover":"cover.jpg"},"moo100-sns":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/Rn5VW9BuCrH/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"sns-3":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/7qtzB8A9Zyp/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae9debf4e7":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/Jn9Hf-i4mRD/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae99643781":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/GHAPtuiFGnT/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"16a95493fa2151":{"files":["1.mp4","2.mp4","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"],"cover":"cover.mp4"},"166dae8118a004":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/GrD2bFMjvPA/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"sns-1":{"files":["1.jpg"],"cover":"cover.jpg"},"166daea52314cc":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/5rxHpb_jgXa/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae9668c2fe":{"files":["1.mp4"],"cover":"cover.mp4"},"166dae54498530":{"files":["1.mp4"],"cover":"cover.mp4"},"166dae4b8e6f5b":{"files":["1.jpg"],"cover":"cover.jpg"},"166dae7e66983d":{"files":["1.jpg"],"cover":"cover.jpg"},"166dae17d31ec5":{"files":["1.mp4"],"cover":"cover.mp4"},"166dae501178e4":{"files":["1.jpg"],"cover":"cover.jpg"},"166dae3ecb57a5":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/LuowEmuooRf/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae6654b09b":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/6ho5NKR-MNU/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae3b095a98":{"files":["1.jpg"],"cover":"cover.jpg"},"166daea9fefff1":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/UmyNdDtCrFG/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae58aaf351":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/Lcq6PRvuruC/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166daeb93c1639":{"files":["1.jpg"],"cover":"cover.jpg"},"166dae5e098fc6":{"files":["1.mp4"],"cover":"cover.mp4"},"166dae62c38b4d":{"files":["1.jpg"],"cover":"cover.jpg"},"20":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"zigtag-vmd":{"files":[],"cover":null},"1681c6b5217d7d":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"zigtag":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"1677f0b5c3850f":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"],"cover":"cover.jpg"},"1681c6e24edb6f":{"files":["1.jpg","2.jpg","3.jpg","4.jpg"],"cover":"cover.jpg"},"1686e2094c2625":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"],"cover":"cover.jpg"},"1686e1fe0f25c7":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"vmd":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"16746a0cf7a02a":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"],"cover":"cover.jpg"},"168520a1130bdf":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"1663e16bc0edfd":{"files":["1.jpg"],"cover":null},"1663e18215b026":{"files":["1.jpg"],"cover":null},"167469fee90738":{"files":["1.jpg","2.jpg","3.jpg","4.jpg"],"cover":"cover.jpg"},"1663e167d6f1ae":{"files":["1.jpg"],"cover":null},"166daed04346f5":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"1663e17017f8ba":{"files":["1.jpg"],"cover":null},"1663e1653471b3":{"files":["1.jpg"],"cover":null},"1663e15ecb5f82":{"files":["1.jpg"],"cover":null},"166daef99ba6e3":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"],"cover":"cover.jpg"},"164940c0a398b1":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"164904d38c1b92":{"files":["1.jpg"],"cover":"cover.jpg"},"164904e061d05c":{"files":["1.jpg"],"cover":"cover.jpg"},"164904dd6a9882":{"files":["1.jpg"],"cover":"cover.jpg"},"164904d7c7ebf7":{"files":["1.jpg"],"cover":"cover.jpg"},"164904da78b79a":{"files":["1.jpg"],"cover":"cover.jpg"},"16490525758b4e":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"68":{"files":["1.jpg"],"cover":"cover.jpg"},"164904cf18ae4e":{"files":["1.jpg"],"cover":"cover.jpg"},"1649053e90540f":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.mp4"],"cover":"cover.jpg"}};
+window.ZT_FIG = [];
 const VIDEO_SIZE = {"2411-3":[[720,125.0]],"2412-event":[[720,125.0]],"2411-2":[[720,125.0]],"16734430d09262":[[1080,100.0]],"1673443706d70d":[[720,125.0]],"1673442534a46c":[[1080,100.0]],"16734413808e26":[[1080,100.0]],"moo100-sns-3":[[360,125.0]],"moo100-sns":[[720,100.0]],"sns-3":[[360,125.0]],"166dae9debf4e7":[[720,100.0]],"166dae99643781":[[360,125.0]],"166dae8118a004":[[360,125.0]],"166daea52314cc":[[360,125.0]],"166dae3ecb57a5":[[720,100.0]],"166dae6654b09b":[[360,125.0]],"166daea9fefff1":[[720,100.0]],"166dae58aaf351":[[720,100.0]]};
 const ORIGIN = "https://kon21107.myportfolio.com/";
 
@@ -557,9 +598,27 @@ buildNav(); render();
 /* ZIGTAG 브랜딩 케이스 스터디 */
 function zigtagCase(){
   const I=n=>`images/zigtag/cs/${n}.jpg`;
-  const card=(n,label,code)=>`<figure class="zt-card"><img loading="lazy" src="${I(n)}" alt="${label}"><figcaption>${label}<span>${code}</span></figcaption></figure>`;
-  const before=[["b_guide","브랜드 가이드"],["b_type","타이포그래피"],["b_color","컬러 시스템"],["b_sun","선스크린"],["b_toner","토너"],["b_pdrn","PDRN+"],["b_img","브랜드 이미지"],["b_skin","피부 텍스처"]];
+  const has=n=>(window.ZT_FIG||[]).includes(n);           /* Figma에서 받은 고화질 이미지가 있으면 그걸 사용 */
+  const img=(fig,fallback,alt)=>has(fig)?`<img loading="lazy" src="images/zigtag/fig/${fig}.png" alt="${alt}">`:`<img loading="lazy" class="lowres" src="${I(fallback)}" alt="${alt}">`;
+  const card=(fig,fb,label,code)=>`<figure class="zt-card">${img(fig,fb,label)}<figcaption>${label}<span>${code}</span></figcaption></figure>`;
+  const before=[["g_cover","b_guide","브랜드 가이드"],["g_textlogo","b_type","텍스트 로고"],["g_fonts","b_type","폰트"],["g_colors","b_color","컬러"],["g_vitc","before","비타민 C"],["g_sun","b_sun","선스크린"],["g_toner","b_toner","토너"],["g_pdrn","b_pdrn","PDRN+"],["g_pattern","b_skin","Z 패턴"],["g_icons","b_img","아이콘 에셋"]];
   const thumbs=[["t_line","제품 라인업"],["t_berry","베리 스무디 스크럽 클렌저"],["t_cera","세라치올 크림"],["t_pine","파인애플 PDRN 멜팅 필 클렌저"],["t_teca","TECA-MICRO 버블 토너"]];
+  const sig=[
+    ["VITAMIN C 15% AMPOULE","p_vitc15",[["MEDIUM PURPLE C","#4E008E"],["108C","#FEDB00"]]],
+    ["SUPER HYDRA AMPOULE","p_vitc10",[["2985C","#5BC2E7"],["2001C","#F8E59A"]]],
+    ["NON-NANO SUNSCREEN","p_sun",[["3405C","#00AF66"],["205C","#E0457B"]]],
+    ["TECA-MICRO TONER","p_teca",[["298C","#41B6E6"],["2018C","#FF7500"]]],
+    ["CERACHIOL CRUSH CREAM","p_cera",[["1235C","#FFB81C"],["PROCESS BLUE C","#0085CA"]]],
+    ["BERRY SMOOTHIE CLEANSER","p_berry",[["211C","#F57EB6"],["389C","#D0DF00"]]],
+    ["PDRN+ BOOST PAD","p_pdrn",[["6053C","#F95F7D"],["121C","#FCD655"]]],
+    ["PINEAPPLE CLEANSER","p_pine",[["803C","#FFE900"],["2423C","#00AA13"]]]
+  ];
+  const sigFallback={p_teca:I("t_teca"),p_cera:I("t_cera"),p_berry:I("t_berry"),p_pine:I("t_pine"),p_vitc10:"images/16a006a6c04570/cover.jpg",p_sun:"images/16a006849402b6/cover.jpg",p_vitc15:"images/15/2.jpg"};
+  const sigCard=([name,fig,cs])=>`<div class="zt-sig">
+      <div class="zt-sig-im">${has(fig)?`<img loading="lazy" src="images/zigtag/fig/${fig}.png" alt="${name}">`:(sigFallback[fig]?`<img loading="lazy" src="${sigFallback[fig]}" alt="${name}">`:`<div class="zt-sig-ph" style="background:${cs[0][1]}"></div>`)}</div>
+      <b>${name}</b>
+      <div class="zt-chips">${cs.map(([pt,hex])=>`<span><i style="background:${hex}"></i>${hex}<small>PANTONE ${pt}</small></span>`).join("")}</div>
+    </div>`;
   const rel=["15","pdrn","16a006849402b6","16a006a6c04570","16a954a61a892c","16a95493fa2151"];
   const apply=rel.map(id=>{const p=ALL.find(x=>x.id===id); if(!p) return "";
     const f=p.m.cover||p.m.files.find(x=>typeof x==="string");
@@ -569,17 +628,26 @@ function zigtagCase(){
     <span class="eyebrow">Branding · ZIGTAG Rebranding</span>
     <h1>패션 더마에서<br><em>조이풀 스킨웨어로.</em></h1>
     <div class="zt-meta">
-      <div><span>Project</span><b>브랜드 리포지셔닝 &amp; 아이덴티티 리뉴얼</b></div>
-      <div><span>Scope</span><b>키비주얼 · 그래픽 표현 · 이미지 연출 톤 재정립, 상세페이지 · 촬영 · 패키지 · VMD 확장</b></div>
-      <div><span>Role</span><b>브랜드 디자이너 · 브랜드 총괄 팀장과 비주얼 방향 협의, 디자인 실행 리딩 (2026 —)</b></div>
+      <div><span>Brand</span><b>ZIGTAG · JOYFUL SKINWEAR</b></div>
+      <div><span>Scope</span><b>리브랜딩 비주얼 방향, 베이직 디자인 시스템, 키비주얼·이미지 연출, 상세페이지·패키지·VMD 적용</b></div>
+      <div><span>Role</span><b>브랜드 디자이너 · 브랜드 총괄 팀장과 방향 협의, 디자인 실행 리딩 (2026 —)</b></div>
     </div>
   </section>
-  <div class="zt-full zt-lineup"><img src="${I("lineup")}" alt="ZIGTAG 제품 라인업"></div>
+  <div class="zt-full zt-lineup">${img("p_set6","lineup","ZIGTAG 제품 라인업")}</div>
 
-  <section>
-    <span class="eyebrow">01 · Concept</span>
+  <section class="zt-name">
+    <span class="eyebrow">01 · Brand Story</span>
+    <div class="zt-zigtag">
+      <div><b>ZIG</b><p>자유롭고 경쾌한 리듬. 춤추듯 가볍고 생기 있게 흐르는 우리의 감정, 피부, 일상. 정해진 루틴이 아닌 나만의 리듬으로 스킨케어를 즐기는 자유로움.</p></div>
+      <div><b>TAG</b><p>진짜 나를 표현하고 드러내는 것. 당신의 기분, 분위기, 존재 그대로를 ZIGTAG 스킨웨어로 표현하세요.</p></div>
+    </div>
+    <blockquote>그냥 바르는 스킨케어가 아닌,<br>나를 드러내기 위한 <em>‘입는’ 스킨웨어.</em></blockquote>
+  </section>
+
+  <section style="padding-top:0">
+    <span class="eyebrow">02 · Repositioning</span>
     <h2>디자인의 변화보다 먼저,<br><em>브랜드의 방향</em>을 바꾸다.</h2>
-    <p style="margin-top:20px">'패션 더마'에서 '조이풀 스킨웨어'로 브랜드 콘셉트를 전환하고, 새로운 방향이 모든 시각 요소에서 읽히도록 기준을 정리했습니다. 핵심은 개별 제품의 개성을 넘어, 직택이 어떤 브랜드인지 일관되게 보여주는 데 있습니다.</p>
+    <p style="margin-top:20px">로고는 유지한 채 '패션 더마'에서 '조이풀 스킨웨어'로 콘셉트를 전환하고, 새로운 방향이 모든 시각 요소에서 읽히도록 기준을 다시 세웠습니다. 핵심은 개별 제품의 개성을 넘어, 직택이 어떤 브랜드인지 일관되게 보여주는 데 있습니다.</p>
     <div class="zt-shift">
       <div>Fashion<br>Derma<small>제품별 컬러와 개성 중심의 표현</small></div>
       <div class="arrow">→</div>
@@ -591,34 +659,59 @@ function zigtagCase(){
       <div class="zt-row"><span class="n"><i>03</i>시각 언어</span><span class="a">제품별 타이포와 비주얼 표현</span><span class="b">심볼·서체·패턴을 연결한 디자인 시스템</span></div>
       <div class="zt-row"><span class="n"><i>04</i>브랜드 경험</span><span class="a">개별 제품의 개성 전달</span><span class="b">제품과 연출 전반에 일관된 브랜드 인상</span></div>
     </div>
-  </section>
-
-  <section style="padding-top:0">
-    <span class="eyebrow">02 · Before / After</span>
-    <h2>핵심 슬로건의 변화에 따른<br>브랜드 아이덴티티 변화</h2>
     <div class="zt-ba">
-      <figure><img loading="lazy" src="${I("before")}" alt="리브랜딩 전 비주얼"><figcaption><span class="tag">Before · 패션 더마</span><b>제품별 컬러와 개성</b><p>다양한 제품 컬러와 대담한 타이포그래피를 활용한 기존 패션 더마의 비주얼.</p></figcaption></figure>
+      <figure><img loading="lazy" src="${I("before")}" alt="리브랜딩 전 비주얼"><figcaption><span class="tag">Before · 패션 더마</span><b>제품별 컬러와 개성</b><p>다양한 제품 컬러와 대담한 타이포그래피를 활용한 기존 비주얼.</p></figcaption></figure>
       <figure><img loading="lazy" src="${I("after")}" alt="리브랜딩 후 비주얼"><figcaption><span class="tag">After · 조이풀 스킨웨어</span><b>하나로 연결되는 아이덴티티</b><p>블루·옐로·화이트와 일관된 디자인 규칙으로 JOYFUL SKINWEAR의 인상을 정립.</p></figcaption></figure>
     </div>
   </section>
 
   <section class="zt-full zt-system"><div class="inner">
-    <span class="eyebrow">03 · Brand System</span>
+    <span class="eyebrow">03 · Basic Design System</span>
     <h2>Bold color.<br><em>Clear identity.</em></h2>
-    <p style="margin-top:20px">제품별로 펼쳐졌던 컬러와 표현을 블루·옐로·화이트 중심의 일관된 시스템으로 정리해, 서로 다른 제품이 하나의 브랜드로 보이도록 했습니다.</p>
-    <div class="zt-colors" role="img" aria-label="컬러 비율 블루 40, 옐로 30, 화이트 30">
-      <div style="flex:40;background:var(--zb);color:#fff"><span>Primary · Blue</span><div><b>40<small>%</small></b><span>#0167C5</span></div></div>
-      <div style="flex:30;background:var(--zy)"><span>Primary · Yellow</span><div><b>30<small>%</small></b><span>#F3EC6C</span></div></div>
-      <div style="flex:30;background:#fff"><span>Base · White</span><div><b>30<small>%</small></b><span>#FFFFFF</span></div></div>
+
+    <div class="zt-sub"><span class="k">BS.01 — 02 · Logo</span>
+      <div class="zt-two">
+        <div>${img("bs01","symbol","ZIGTAG 워드마크")}<p class="cap">워드마크는 경쾌하고 리드미컬한 브랜드 이미지를 전달하는 핵심 요소. 임의 변형과 과도한 효과를 금지합니다.</p></div>
+        <div>${img("bs02","logo","ZT 심벌")}<p class="cap">ZT 심벌은 브랜드 인지도가 확보된 환경이나 작은 공간에서 보조적으로 사용하고, 첫 노출에는 워드마크를 우선합니다.</p></div>
+      </div>
     </div>
-    <div class="zt-cards">
-      ${card("symbol","심볼","BS.01")}${card("logo","로고 컬러","BS.02")}${card("slogan","슬로건","BS.03")}
-      ${card("type","서체","BS.06")}${card("pattern","패턴","BS.07")}${card("ratio","컬러 비율","BS.05")}
+
+    <div class="zt-sub"><span class="k">BS.03 · Slogan</span>
+      <div class="zt-slogan"><b>JOYFUL SKINWEAR</b><p>피부를 가꾸는 스킨케어를 넘어, 건강하고 깨끗한 피부에 알맞은 즐거운 뷰티 케어. 로고와 규정된 조합·비율로 함께 쓰며 브랜드 무드의 토대가 됩니다.</p></div>
+    </div>
+
+    <div class="zt-sub"><span class="k">BS.04 — 05 · Color</span>
+      <div class="zt-colors" role="img" aria-label="권장 비율 블루 40, 옐로 30, 화이트 30">
+        <div style="flex:40;background:var(--zb);color:#fff"><span>ZIGTAG Blue</span><div><b>40<small>%</small></b><span>#0085CA</span></div></div>
+        <div style="flex:30;background:var(--zy)"><span>ZIGTAG Yellow</span><div><b>30<small>%</small></b><span>#F3EC6D</span></div></div>
+        <div style="flex:30;background:#fff"><span>ZIGTAG White</span><div><b>30<small>%</small></b><span>#FFFFFF</span></div></div>
+      </div>
+      <p class="cap">매체와 목적에 따라 비율은 유연하게 조정하되, 브랜드의 대표성을 위해 Blue가 시각적 중심을 유지합니다.</p>
+    </div>
+
+    <div class="zt-sub"><span class="k">BS.06 · Typography</span>
+      <div class="zt-type">
+        <div class="row"><span class="nm">Pretendard</span><span class="sp" style="font-family:'Pretendard Variable',Pretendard,var(--body);font-weight:700">즐겁게 입는 스킨케어 Aa 123</span><small>한글·영문 기본 서체 · 본문 / 패키지 / 상세페이지</small></div>
+        <div class="row"><span class="nm">SD UNICEF Hearty TT</span>${has("bs06_hearty")?`<img class="sp-img" src="images/zigtag/fig/bs06_hearty.png" alt="SD UNICEF Hearty 견본">`:`<span class="sp sp-note">캠페인 문구 전용 서체</span>`}<small>캠페인 문구 / 짧은 강조 카피 · 긴 본문 사용 금지</small></div>
+        <div class="row"><span class="nm">Libre Caslon Text</span><span class="sp" style="font-family:'Libre Caslon Text',Georgia,serif;font-style:italic">A joyful way to wear skin</span><small>영문 에디토리얼 카피 / 감성적 헤드라인</small></div>
+      </div>
+    </div>
+
+    <div class="zt-sub"><span class="k">BS.07 · Pattern</span>
+      ${img("bs07","pattern","ZIGTAG 브랜드 패턴")}
+      <p class="cap">지정된 형태·비율·컬러를 유지하는 보조 그래픽. 패키지, 인쇄물, VMD에 활용합니다.</p>
     </div>
   </div></section>
 
   <section>
-    <span class="eyebrow">04 · Applied</span>
+    <span class="eyebrow">04 · Signature Color</span>
+    <h2>제품마다 하나의 얼굴,<br><em>하나의 시스템</em> 안에서.</h2>
+    <p style="margin-top:20px">공통 블루·옐로 위에서 각 제품은 두 가지 시그니처 컬러로 개성을 드러냅니다. 온·오프라인 어디서든 같은 색으로 재현되도록 PANTONE과 HEX를 함께 지정했습니다.</p>
+    <div class="zt-sigs">${sig.map(sigCard).join("")}</div>
+  </section>
+
+  <section style="padding-top:0">
+    <span class="eyebrow">05 · Applied</span>
     <h2>컬러 시스템을 적용한<br>제품 비주얼</h2>
     <p style="margin-top:20px">옐로 배경과 블루 스테이지를 공통으로 적용해, 서로 다른 제품이 하나의 브랜드로 보이도록 구성했습니다.</p>
     <div class="zt-thumbs">${thumbs.map(([n,l])=>`<figure><img loading="lazy" src="${I(n)}" alt="${l}"><figcaption>${l}</figcaption></figure>`).join("")}</div>
@@ -626,7 +719,7 @@ function zigtagCase(){
   </section>
 
   <section style="padding-top:0">
-    <span class="eyebrow">05 · Rollout</span>
+    <span class="eyebrow">06 · Rollout</span>
     <h3>새 시스템으로 만든 상세페이지와 SNS 광고</h3>
     <p>신규 출시(슈퍼 하이드라 앰플 비타민 C 10%, 파인애플 PDRN 멜팅 필 클렌저)와 리뉴얼(비타민 C 15% 슈퍼 블라스트 앰플, 논-나노 하이퍼 실드 선스크린) 제품의 키비주얼과 상세페이지. 눌러서 각 작업을 볼 수 있어요.</p>
     <div class="zt-apply">${apply}</div>
@@ -634,8 +727,8 @@ function zigtagCase(){
 
   <section style="padding-top:0">
     <span class="eyebrow" style="color:#7a8291">Archive · Before</span>
-    <h3 style="margin-top:10px">리브랜딩 전, 패션 더마 시기의 자료</h3>
-    <div class="zt-before">${before.map(([n,l])=>`<figure><img loading="lazy" src="${I(n)}" alt="${l}"><figcaption>${l}</figcaption></figure>`).join("")}</div>
+    <h3 style="margin-top:10px">리브랜딩 전, 패션 더마 시기의 브랜드 가이드</h3>
+    <div class="zt-before">${before.map(([f,fb,l])=>`<figure>${img(f,fb,l)}<figcaption>${l}</figcaption></figure>`).join("")}</div>
   </section>
 
   <section class="zt-full zt-end"><div class="inner">
