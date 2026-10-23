@@ -505,7 +505,7 @@ const CATS = [
 ];
 
 /* 브랜드 작업이 먼저 보이도록 카테고리 순서 지정 */
-const ORDER=["branding","package","detail","print","event","sns","apparel","web","travel"];
+const ORDER=["branding","detail","package","print","event","sns","apparel","web","travel"];
 CATS.sort((a,b)=>ORDER.indexOf(a.key)-ORDER.indexOf(b.key));
 const ALL = [];
 CATS.forEach(c => c.items.forEach(([title,id,year]) => ALL.push({title,id,year:year||"",cat:c.key,catName:c.name,m:MEDIA[id]||{files:[],cover:null}})));
@@ -520,7 +520,7 @@ let current = "all", list = ALL;
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 
 function buildNav(){
-  const rows=[{key:"all",name:"전체",count:ALL.length},...CATS.map(c=>({key:c.key,name:c.name,count:c.items.length}))];
+  const rows=[...CATS.map(c=>({key:c.key,name:c.name,count:c.items.length})),{key:"all",name:"전체",count:ALL.length}];
   nav.innerHTML=rows.map(r=>`<li><button data-k="${r.key}" aria-pressed="${r.key===current}"><span class="lab">${esc(r.name)}</span><span class="cnt">${r.count}</span></button></li>`).join("");
 }
 function ph(p){
