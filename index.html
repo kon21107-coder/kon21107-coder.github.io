@@ -105,6 +105,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .me .av{width:44px;height:44px;background:var(--lime);border:1px solid var(--fg);display:grid;place-items:center;font-family:var(--poster);font-size:18px}
 .me small{display:block;color:var(--muted);font-size:11px}
 
+.about-body{margin:22px 0 28px;color:#4a4a46;font-size:15px;line-height:1.8;word-break:keep-all;max-width:58ch}
+.about .me{grid-column:auto}
+.disc li span{font-size:clamp(14px,1.35vw,17px)}
+/* experience */
+.exp{border-top:1px solid var(--line);padding-block:10px 88px}
+.exp-list{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--hair)}
+.exp-list li{display:grid;grid-template-columns:180px minmax(0,.9fr) minmax(0,1.4fr);gap:12px 32px;padding:22px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.exp-list .when{font-family:var(--mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.exp-list b{display:block;font-size:clamp(16px,1.6vw,20px)}
+.exp-list small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.exp-list p{margin:0;font-size:14px;line-height:1.75;color:#3f3f3b;word-break:keep-all}
+.exp-list li:first-child .when{color:var(--fg)}
+.exp-list li:first-child .when::before{content:"";display:inline-block;width:7px;height:7px;background:var(--lime-ink);border-radius:50%;margin-right:8px;transform:translateY(-1px)}
+.tools{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;margin:22px 0 0;font-size:14px;color:#3f3f3b}
+.tools .label{color:var(--muted)}
+
 /* work */
 .ticker.big{background:var(--bg);border-block:1px solid var(--fg)}
 .ticker.big .run{animation-duration:30s;padding-block:10px}
@@ -254,6 +270,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .feat-head .muted{display:none}
   .about{grid-template-columns:minmax(0,1fr);padding-bottom:56px}
   .about .me{grid-column:auto}
+  .exp-list li{grid-template-columns:minmax(0,1fr);gap:6px}
+  .exp{padding-bottom:56px}
   .grid{grid-template-columns:minmax(0,1fr);gap:28px}
   .contact{grid-template-columns:minmax(0,1fr)}
   .contact-info{text-align:left}
@@ -274,6 +292,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <nav class="menu">
       <a class="wide" href="#work">Work</a>
       <a class="wide" href="#about">About</a>
+      <a class="wide" href="#experience">Experience</a>
       <a class="wide cta" href="#contact">Contact</a>
     </nav>
   </header>
@@ -281,7 +300,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <h1 class="hero-name" id="top"><span>Sera Kim</span></h1>
   <div class="sub">
     <h2 class="wide">Brand Designer</h2>
-    <p>브랜드의 방향을 세우고, 아이덴티티부터 패키지와 커머스까지 하나의 경험으로 이어지도록 디자인합니다.</p>
+    <p>브랜드의 방향을 제안하고,<br>일관된 경험으로 완성하는 디자이너.</p>
   </div>
 
   <div class="ticker" aria-hidden="true"><div class="run" id="t1"></div></div>
@@ -291,7 +310,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div class="stat"><span class="label">Projects</span><b id="sProjects">122</b></div>
     <div class="stat"><span class="label">Brands</span><b>8<i>+</i></b></div>
     <div class="stat"><span class="label">Packages</span><b id="sPkg">7</b></div>
-    <div class="stat"><span class="label">Years</span><b>5<i>+</i></b></div>
+    <div class="stat"><span class="label">Years</span><b>9<i>+</i></b></div>
   </section>
 
   <div class="brands">
@@ -302,12 +321,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <section class="featured" id="featured">
     <div class="feat-head">
       <span class="label">Featured case</span>
-      <span class="label muted">Branding · Repositioning &amp; Identity</span>
+      <span class="label muted">Branding · Visual Direction</span>
     </div>
     <button class="feat" data-open="zigtag" aria-label="ZIGTAG 리브랜딩 케이스 스터디 보기">
       <div class="feat-title">
         <h3 class="wide">ZIGTAG<br>Rebranding</h3>
-        <p>패션 더마에서 조이풀 스킨웨어로.<br>콘셉트 전환부터 컬러·서체·패턴, 제품 연출까지 하나의 시스템으로.</p>
+        <p>패션 더마에서 조이풀 스킨웨어로.<br>로고는 유지한 채 키비주얼·그래픽·이미지 연출 톤을 재정립하고, 상세페이지부터 패키지, 오프라인 VMD까지 하나의 경험으로 확장했습니다.</p>
         <span class="feat-cta wide">케이스 스터디 보기 →</span>
       </div>
       <div class="feat-ba">
@@ -319,18 +338,47 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
   <section class="about" id="about">
     <span class="label">About</span>
-    <p class="statement">브랜드가 무엇을 말할지 먼저 정하고, 그 이야기가 로고부터 패키지, 상세페이지 한 장까지 <mark>같은 목소리</mark>로 읽히도록 설계합니다.</p>
-    <ol class="disc">
-      <li><span class="wide">Brand Repositioning</span><small>콘셉트와 방향 정의</small></li>
-      <li><span class="wide">Identity System</span><small>심볼 · 컬러 · 서체 · 패턴</small></li>
-      <li><span class="wide">Packaging</span><small>용기 · 단상자 · 기획세트</small></li>
-      <li><span class="wide">Brand Commerce</span><small>상세페이지 · 이벤트 · SNS</small></li>
-      <li><span class="wide">Retail &amp; VMD</span><small>매장 연출 · 옥외 · 인쇄물</small></li>
-    </ol>
-    <div class="me">
-      <div class="av">SK</div>
-      <div><span class="wide" style="font-size:12px">Sera Kim</span><small>Brand Designer · Seoul</small></div>
+    <div>
+      <p class="statement">브랜드의 정체성을 이해하고, 이를 다양한 고객 접점에서 <mark>일관된 시각적 경험</mark>으로 구현합니다.</p>
+      <p class="about-body">약 9년간 브랜딩, 패키지, 디지털 콘텐츠, 이커머스, 촬영 디렉팅까지 폭넓은 실무를 해왔습니다. 주어진 디자인을 만드는 데서 그치지 않고, 브랜드가 전달해야 할 가치와 방향을 먼저 고민합니다. 제품의 특성과 핵심 소구점을 분석하고 정보 구조, 이미지 표현, 타이포그래피를 조정해 메시지가 더 명확하고 매력적으로 전달되도록 설계합니다.</p>
+      <div class="me">
+        <div class="av">SK</div>
+        <div><span class="wide" style="font-size:12px">Sera Kim</span><small>Brand Designer · 9 yrs 7 mos</small></div>
+      </div>
     </div>
+    <ol class="disc">
+      <li><span class="wide">Brand Identity &amp; Visual Direction</span><small>리브랜딩 · 비주얼 콘셉트 · 키비주얼 · 톤앤매너</small></li>
+      <li><span class="wide">Art Direction &amp; Content</span><small>제품·모델 촬영 기획 · 이미지 연출 · 광고 콘텐츠</small></li>
+      <li><span class="wide">Packaging &amp; Retail</span><small>패키지 · 인쇄 아트워크 · VMD · POP · 해외 유통</small></li>
+      <li><span class="wide">Digital &amp; E-commerce</span><small>상세페이지 · 자사몰 · UI/UX · HTML/CSS</small></li>
+    </ol>
+  </section>
+
+  <section class="exp" id="experience">
+    <span class="label">Experience</span>
+    <ol class="exp-list">
+      <li>
+        <span class="when">2026.03 — 현재</span>
+        <div><b class="wide">ZIGTAG</b><small>브랜드 디자이너 · JOYFUL SKINWEAR</small></div>
+        <p>브랜드 총괄 팀장과 리브랜딩 비주얼 방향을 협의하고 디자인 실행을 리딩. 키비주얼, 이미지 연출, 톤앤매너를 재정립해 상세페이지·제품 촬영·패키지·프로모션·오프라인 VMD로 확장. 현대백화점 팝업스토어 VMD, 두바이 뷰티월드 홍보물, 말레이시아 Guardian 진열 POP 디자인.</p>
+      </li>
+      <li>
+        <span class="when">2024.06 — 2025.08</span>
+        <div><b class="wide">스타힐스코스메틱</b><small>디자인팀 과장·팀장 · 무백(MUBAEK)</small></div>
+        <p>디자인팀 1인 체계로 브랜드 디자인 전반 담당. BI 개선과 신규 비주얼 방향 제안, 신제품 론칭, 촬영 디렉팅, 패키지 아트워크와 출력 감리까지.</p>
+      </li>
+      <li>
+        <span class="when">2018.11 — 2023.07</span>
+        <div><b class="wide">에센루</b><small>디자인팀 과장</small></div>
+        <p>유아동 브랜드 BI 개선과 브랜드별 비주얼, 상세페이지·기획전·프로모션, 신제품 촬영 디렉팅, 자사몰 운영과 HTML/CSS 퍼블리싱.</p>
+      </li>
+      <li>
+        <span class="when">2015.06 — 2018.04</span>
+        <div><b class="wide">티라티에스</b><small>웹팀 대리</small></div>
+        <p>웹·모바일 프로모션과 이벤트 디자인, 반응형 퍼블리싱, POP·편집물 등 온·오프라인 홍보물.</p>
+      </li>
+    </ol>
+    <p class="tools"><span class="label">Tools</span>Photoshop · Illustrator · InDesign · After Effects · Premiere Pro · Figma · XD · HTML/CSS · 생성형 AI</p>
   </section>
 
   <div class="ticker big" aria-hidden="true"><div class="run" id="t2"></div></div>
@@ -442,7 +490,7 @@ function render(){
   const c=CATS.find(x=>x.key===current);
   list = c ? ALL.filter(p=>p.cat===current) : ALL;
   $("#catTitle").textContent = c ? c.name : "전체 작업";
-  $("#catDesc").textContent = c ? c.desc : "2021년부터 이어온 브랜드 디자인 작업. 리브랜딩과 패키지부터 상세페이지, 캠페인, 매장 연출까지.";
+  $("#catDesc").textContent = c ? c.desc : "9년간의 브랜드 디자인 작업 중 일부. 리브랜딩과 패키지부터 상세페이지, 캠페인, 매장 연출까지.";
   $("#catCount").textContent = list.length + " projects";
   grid.innerHTML = list.map((p,i)=>`<button class="card" data-i="${i}"><div class="thumb">${thumb(p)}</div><div class="cap"><span class="t">${esc(p.title)}</span><span class="c">${esc(p.catName)}</span><span class="y">${p.year}</span></div></button>`).join("");
   nav.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===current));
@@ -522,8 +570,8 @@ function zigtagCase(){
     <h1>패션 더마에서<br><em>조이풀 스킨웨어로.</em></h1>
     <div class="zt-meta">
       <div><span>Project</span><b>브랜드 리포지셔닝 &amp; 아이덴티티 리뉴얼</b></div>
-      <div><span>Scope</span><b>콘셉트 전환, 컬러·서체·패턴, 제품 연출, 적용 디자인</b></div>
-      <div><span>Role</span><b>김세라 · 리브랜딩 방향성 및 디자인 주도</b></div>
+      <div><span>Scope</span><b>키비주얼 · 그래픽 표현 · 이미지 연출 톤 재정립, 상세페이지 · 촬영 · 패키지 · VMD 확장</b></div>
+      <div><span>Role</span><b>브랜드 디자이너 · 브랜드 총괄 팀장과 비주얼 방향 협의, 디자인 실행 리딩 (2026 —)</b></div>
     </div>
   </section>
   <div class="zt-full zt-lineup"><img src="${I("lineup")}" alt="ZIGTAG 제품 라인업"></div>
@@ -580,7 +628,7 @@ function zigtagCase(){
   <section style="padding-top:0">
     <span class="eyebrow">05 · Rollout</span>
     <h3>새 시스템으로 만든 상세페이지와 SNS 광고</h3>
-    <p>눌러서 각 작업을 볼 수 있어요.</p>
+    <p>신규 출시(슈퍼 하이드라 앰플 비타민 C 10%, 파인애플 PDRN 멜팅 필 클렌저)와 리뉴얼(비타민 C 15% 슈퍼 블라스트 앰플, 논-나노 하이퍼 실드 선스크린) 제품의 키비주얼과 상세페이지. 눌러서 각 작업을 볼 수 있어요.</p>
     <div class="zt-apply">${apply}</div>
   </section>
 
