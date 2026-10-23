@@ -379,7 +379,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="hero" id="hero"></div>
 
   <section class="stats" aria-label="작업 요약">
-    <div class="stat"><span class="label">Projects</span><b id="sProjects">140</b></div>
+    <div class="stat"><span class="label">Projects</span><b id="sProjects">133</b></div>
     <div class="stat"><span class="label">Brands</span><b>6<i>+</i></b></div>
     <div class="stat"><span class="label">Packages</span><b id="sPkg">7</b></div>
     <div class="stat"><span class="label">Years</span><b>9<i>+</i></b></div>
@@ -534,6 +534,16 @@ const CATS = [
 /* 브랜드 작업이 먼저 보이도록 카테고리 순서 지정 */
 const ORDER=["branding","detail","package","print","event","sns","apparel","web","travel","illust"];
 CATS.sort((a,b)=>ORDER.indexOf(a.key)-ORDER.indexOf(b.key));
+
+/* 비공개 카테고리: 주소 뒤에 ?me 를 붙여 한 번 열면 그 브라우저에서만 보여요. ?me=off 로 다시 숨김 */
+const PRIVATE_CATS=["illust"];
+let showPrivate=false;
+try{
+  const q=new URLSearchParams(location.search);
+  if(q.has("me")){ if(q.get("me")==="off") localStorage.removeItem("sk_me"); else localStorage.setItem("sk_me","1"); }
+  showPrivate=localStorage.getItem("sk_me")==="1";
+}catch(_){}
+if(!showPrivate) for(let i=CATS.length-1;i>=0;i--) if(PRIVATE_CATS.includes(CATS[i].key)) CATS.splice(i,1);
 const ALL = [];
 CATS.forEach(c => c.items.forEach(([title,id,year]) => ALL.push({title,id,year:year||"",cat:c.key,catName:c.name,m:MEDIA[id]||{files:[],cover:null}})));
 
