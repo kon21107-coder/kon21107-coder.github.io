@@ -156,6 +156,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .contact h2 em{font-style:normal;background:var(--lime);padding:0 .06em}
 .contact-info{display:flex;flex-direction:column;gap:6px;font-size:14px;text-align:right}
 .contact-info .label{color:var(--muted)}
+.contact-info .mail{font-family:var(--wide);font-variation-settings:"wdth" 110;font-weight:600;font-size:clamp(18px,2vw,26px);user-select:all}
+.contact-info .mail:hover{background:var(--lime)}
+.contact-info .copy{align-self:flex-end;border:1px solid var(--fg);padding:7px 12px;color:var(--fg)}
+.contact-info .copy:hover{background:var(--lime)}
 
 /* viewer */
 .viewer{position:fixed;inset:0;z-index:20;background:var(--bg);overflow-y:auto;
@@ -323,6 +327,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .grid{grid-template-columns:minmax(0,1fr);gap:28px}
   .contact{grid-template-columns:minmax(0,1fr)}
   .contact-info{text-align:left}
+  .contact-info .copy{align-self:flex-start}
 }
 @media (prefers-reduced-motion:reduce){.ticker .run{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -444,8 +449,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <h2>Let's build<br>a <em>brand</em></h2>
     <div class="contact-info">
       <span class="label">Contact</span>
-      <span>이메일 주소를 입력하세요</span>
-      <span>인스타그램 / 비핸스 링크</span>
+      <a class="mail" href="mailto:kon21107@gmail.com">kon21107@gmail.com</a>
+      <button class="copy label" id="copyMail" type="button">Copy email</button>
       <span class="label" style="margin-top:14px">© 2026 Sera Kim</span>
     </div>
   </section>
@@ -756,6 +761,15 @@ function zigtagCase(){
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-open]"); if(!b) return;
   current="all"; render(); const i=list.findIndex(x=>x.id===b.dataset.open); if(i>=0) openViewer(i);
+});
+
+/* 이메일 복사 */
+document.getElementById("copyMail").addEventListener("click",e=>{
+  const b=e.currentTarget, done=()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy email",1600)};
+  (navigator.clipboard?navigator.clipboard.writeText("kon21107@gmail.com"):Promise.reject()).then(done).catch(()=>{
+    const r=document.createRange(); r.selectNodeContents(document.querySelector(".contact-info .mail"));
+    const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  });
 });
 
 /* 상단 이름을 화면 폭에 꽉 맞춤 */
