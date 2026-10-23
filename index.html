@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sera Kim Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,400..800&family=Gothic+A1:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: poster-style single page. Giant condensed name → lime ticker → hero triptych of product shots →
+   figures → brands → services → SELECTED WORK ticker → filterable work grid → contact. Light only, by choice. */
+:root{
+  --bg:#ffffff;
+  --panel:#f4f4f1;
+  --line:#141414;
+  --hair:#e3e3df;
+  --fg:#111111;
+  --muted:#7b7b76;
+  --lime:#d6ff3c;          /* highlighter lime, used as fills, never as text on white */
+  --lime-ink:#9bc80a;      /* darker lime for small marks on white */
+  --poster:"Anton", "Archivo", Impact, sans-serif;
+  --wide:"Archivo", "Gothic A1", sans-serif;
+  --body:"Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--bg);scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.page{max-width:1440px;margin:0 auto}
+.wide{font-family:var(--wide);font-variation-settings:"wdth" 125;font-weight:700;text-transform:uppercase;letter-spacing:.01em}
+.label{font-family:var(--wide);font-variation-settings:"wdth" 110;font-weight:500;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.spark{width:14px;height:14px;flex:none;color:var(--lime-ink)}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:16px}
+.logo{display:flex;align-items:center;gap:8px;font-size:13px}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{font-size:11px}
+.menu a:hover{text-decoration:underline;text-underline-offset:4px}
+.cta{background:var(--lime);padding:9px 16px;font-size:11px;border:1px solid var(--fg)}
+.cta:hover{background:var(--fg);color:var(--lime)}
+
+/* hero name */
+.hero-name{font-family:var(--poster);font-weight:400;text-transform:uppercase;line-height:.84;margin:6px 0 0;white-space:nowrap;letter-spacing:-.005em;font-size:24vw}
+.sub{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin:14px 0 18px}
+.sub h2{margin:0;font-size:clamp(18px,2.4vw,30px);line-height:1.05}
+.sub p{margin:0;font-size:14px;color:var(--muted);max-width:42ch;word-break:keep-all}
+
+/* tickers */
+.ticker{overflow:hidden;white-space:nowrap;background:var(--lime);border-block:1px solid var(--fg)}
+.ticker .run{display:inline-flex;animation:run 38s linear infinite;padding-block:5px}
+.ticker span{font-size:10.5px;padding-inline:14px}
+@keyframes run{to{transform:translateX(-50%)}}
+.hero{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:var(--panel)}
+.hero figure{margin:0;aspect-ratio:4/5;max-width:100%;overflow:hidden;position:relative}
+.hero img,.hero video{width:100%;height:100%;object-fit:cover;display:block}
+.hero figcaption{position:absolute;left:12px;bottom:12px;background:var(--bg);padding:4px 9px;font-size:12px}
+
+/* figures */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:44px 32px}
+.stat{border-top:1px solid var(--line);padding-top:8px}
+.stat b{display:block;font-family:var(--wide);font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(34px,4vw,52px);line-height:1.05;margin-top:6px;font-variant-numeric:tabular-nums}
+.stat b i{font-style:normal;background:var(--lime);padding:0 .08em}
+
+/* brands */
+.brands{display:flex;align-items:center;gap:20px 44px;flex-wrap:wrap;padding-block:18px 64px}
+.brands .label{display:flex;align-items:center;gap:12px;color:var(--fg)}
+.brands .label::before{content:"";width:28px;height:1px;background:var(--fg)}
+.brands span.b{font-family:var(--wide);font-variation-settings:"wdth" 112;font-weight:700;font-size:16px;letter-spacing:-.01em;color:#2a2a2a}
+
+/* services */
+.services{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;padding-block:24px 80px}
+.services-left{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.services h3{margin:14px 0 0;font-size:clamp(30px,3.6vw,46px);line-height:1}
+.svc-list{display:flex;flex-direction:column;gap:14px}
+.svc{background:var(--panel);padding:22px 24px}
+.svc h4{display:flex;align-items:center;gap:10px;margin:0 0 8px;font-size:15px}
+.svc p{margin:0;font-size:13.5px;color:#4a4a46;word-break:keep-all;max-width:60ch}
+.me{display:flex;align-items:center;gap:12px}
+.me .av{width:44px;height:44px;background:var(--lime);border:1px solid var(--fg);display:grid;place-items:center;font-family:var(--poster);font-size:18px}
+.me small{display:block;color:var(--muted);font-size:11px}
+
+/* work */
+.ticker.big{background:var(--bg);border-block:1px solid var(--fg)}
+.ticker.big .run{animation-duration:30s;padding-block:10px}
+.ticker.big span{font-size:clamp(22px,3vw,36px);padding-inline:18px}
+.ticker.big span.dot{padding-inline:0;color:var(--lime-ink)}
+.work{padding-block:28px 40px;scroll-margin-top:70px}
+.work-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.work-head h2{margin:0;font-size:20px}
+.work-head p{margin:4px 0 0;color:var(--muted);font-size:13px;max-width:60ch}
+.nav{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.nav button{border:1px solid var(--hair);padding:7px 13px;font-size:13px;display:flex;gap:7px;align-items:baseline;transition:border-color .15s}
+.nav button:hover{border-color:var(--fg)}
+.nav button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.cnt{font-family:var(--mono);font-size:11px;opacity:.6}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 14px}
+.card{display:flex;flex-direction:column;gap:10px;text-align:left;width:100%}
+.thumb{position:relative;aspect-ratio:1000/781;max-width:100%;width:100%;overflow:hidden;background:var(--panel)}
+.thumb img,.thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .thumb img,.card:hover .thumb video{transform:scale(1.035)}
+.ph{position:absolute;inset:0;display:flex;align-items:end;padding:16px;background:var(--panel)}
+.ph .tag{display:none}
+.ph .big{font-family:var(--wide);font-weight:700;font-size:20px;word-break:keep-all}
+.cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:baseline}
+.cap .t{font-size:15px;font-weight:600;word-break:keep-all;min-width:0}
+.cap .c{grid-row:2;font-size:12px;color:var(--muted)}
+.cap .y{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.card:hover .cap .t{background:var(--lime);box-shadow:0 0 0 2px var(--lime)}
+
+/* contact */
+.contact{border-top:1px solid var(--fg);padding-block:56px 120px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.contact h2{margin:0;font-family:var(--poster);font-weight:400;text-transform:uppercase;font-size:clamp(56px,11vw,168px);line-height:.86}
+.contact h2 em{font-style:normal;background:var(--lime);padding:0 .06em}
+.contact-info{display:flex;flex-direction:column;gap:6px;font-size:14px;text-align:right}
+.contact-info .label{color:var(--muted)}
+
+/* viewer */
+.viewer{position:fixed;inset:0;z-index:20;background:var(--bg);overflow-y:auto;
+  padding:env(safe-area-inset-top,0px) max(16px, env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(16px, env(safe-area-inset-left,0px))}
+.vbar{position:sticky;top:0;z-index:2;background:var(--bg);display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px;border-bottom:1px solid var(--fg);max-width:1000px;margin:0 auto}
+.vbar h3{margin:0;font-size:16px;font-weight:700}
+.meta{font-family:var(--mono);font-size:11px;color:var(--muted);display:block;margin-top:2px}
+.close{padding:8px 16px;background:var(--lime);border:1px solid var(--fg);font-size:12px;flex:none}
+.vbody{max-width:1000px;margin:0 auto;padding-block:28px 56px}
+.vbody img,.vbody video{width:100%;display:block}
+.vid{width:100%;margin:24px auto}
+.vid>div{position:relative;height:0;background:var(--panel)}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vlink{display:inline-block;margin-top:10px;font-size:13px;color:var(--muted)}
+.empty{border:1px dashed var(--hair);padding:48px 24px;text-align:center;color:var(--muted)}
+.empty strong{display:block;font-size:22px;color:var(--fg);margin-bottom:6px}
+.vnav{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding-block:18px 48px;border-top:1px solid var(--fg)}
+.vnav button{font-size:14px;max-width:45%;text-align:left}
+.vnav button:last-child{text-align:right}
+.vnav button:hover{background:var(--lime)}
+
+@media (max-width:860px){
+  .menu a:not(.cta){display:none}
+  .sub{margin-top:10px}
+  .hero{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero figure:nth-child(3){display:none}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;padding-block:32px 20px}
+  .brands{gap:12px 24px;padding-bottom:44px}
+  .brands .label{width:100%}
+  .services{grid-template-columns:minmax(0,1fr);gap:24px;padding-bottom:56px}
+  .services-left{gap:20px}
+  .grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .contact{grid-template-columns:minmax(0,1fr)}
+  .contact-info{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){.ticker .run{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></symbol>
+</svg>
+
+<div class="page">
+  <header class="top">
+    <a class="logo wide" href="#top"><svg class="spark"><use href="#sp"/></svg>Sera Kim</a>
+    <nav class="menu">
+      <a class="wide" href="#work">Work</a>
+      <a class="wide" href="#services">Services</a>
+      <a class="wide cta" href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <h1 class="hero-name" id="top"><span>Sera Kim</span></h1>
+  <div class="sub">
+    <h2 class="wide">Commerce &amp; Beauty Designer</h2>
+    <p>뷰티·헤어·유아 브랜드의 상세페이지, 이벤트, SNS 광고, 패키지를 디자인합니다.</p>
+  </div>
+
+  <div class="ticker" aria-hidden="true"><div class="run" id="t1"></div></div>
+  <div class="hero" id="hero"></div>
+
+  <section class="stats" aria-label="작업 요약">
+    <div class="stat"><span class="label">Projects</span><b id="sProjects">122</b></div>
+    <div class="stat"><span class="label">Detail pages</span><b id="sDetail">28</b></div>
+    <div class="stat"><span class="label">SNS ads</span><b id="sSns">38</b></div>
+    <div class="stat"><span class="label">Years</span><b>5<i>+</i></b></div>
+  </section>
+
+  <div class="brands">
+    <span class="label">Brands</span>
+    <span class="b">ZIGTAG</span><span class="b">MOO100</span><span class="b">NAPURA</span><span class="b">도노도노</span><span class="b">두두스토리</span><span class="b">하베브릭스</span><span class="b">시코르</span><span class="b">모두투어</span>
+  </div>
+
+  <section class="services" id="services">
+    <div class="services-left">
+      <div>
+        <svg class="spark" style="width:22px;height:22px"><use href="#sp"/></svg>
+        <h3 class="wide">Design<br>Services</h3>
+      </div>
+      <div class="me">
+        <div class="av">SK</div>
+        <div><span class="wide" style="font-size:12px">Sera Kim</span><small>커머스 &amp; 뷰티 그래픽 디자이너</small></div>
+      </div>
+    </div>
+    <div class="svc-list">
+      <div class="svc"><h4 class="wide"><svg class="spark"><use href="#sp"/></svg>Detail Page</h4><p>제품의 소구점을 정리하고 촬영 컷 구성부터 타이포그래피까지, 구매로 이어지는 상세페이지를 만듭니다.</p></div>
+      <div class="svc"><h4 class="wide"><svg class="spark"><use href="#sp"/></svg>Event &amp; Promotion</h4><p>시즌 기획전, 런칭 이벤트, 특가 페이지를 브랜드 톤에 맞게 빠르게 설계합니다.</p></div>
+      <div class="svc"><h4 class="wide"><svg class="spark"><use href="#sp"/></svg>Social Ads</h4><p>올리브영·자사몰 프로모션과 브랜드 SNS 광고 소재를 이미지와 영상으로 제작합니다.</p></div>
+      <div class="svc"><h4 class="wide"><svg class="spark"><use href="#sp"/></svg>Package &amp; Print</h4><p>단상자, 기획세트, VMD와 옥외 광고까지 오프라인 매체로 이어지는 디자인을 합니다.</p></div>
+    </div>
+  </section>
+
+  <div class="ticker big" aria-hidden="true"><div class="run" id="t2"></div></div>
+
+  <section class="work" id="work">
+    <div class="work-head">
+      <div><h2 class="wide" id="catTitle">전체 작업</h2><p id="catDesc"></p></div>
+      <span class="label" id="catCount"></span>
+    </div>
+    <ul class="nav" id="nav"></ul>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Let's make<br>it <em>sell</em></h2>
+    <div class="contact-info">
+      <span class="label">Contact</span>
+      <span>이메일 주소를 입력하세요</span>
+      <span>인스타그램 / 비핸스 링크</span>
+      <span class="label" style="margin-top:14px">© 2026 Sera Kim</span>
+    </div>
+  </section>
+</div>
+
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle">
+  <div class="vbar">
+    <div style="min-width:0"><h3 id="vTitle"></h3><span class="meta" id="vMeta"></span></div>
+    <button class="close wide" id="vClose">Close</button>
+  </div>
+  <div class="vbody" id="vBody"></div>
+  <div class="vnav"><button id="vPrev"></button><button id="vNext"></button></div>
+</div>
+
+<script>
+/* 작업별 이미지 목록 (images/<id>/ 폴더). 빌드할 때 자동으로 채워집니다. */
+const MEDIA = {"s6":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"],"cover":"cover.jpg"},"1686e21c691028":{"files":["1.jpg","2.jpg","3.mp4","4.mp4","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg"],"cover":"cover.jpg"},"16a006849402b6":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.mp4","9.jpg","10.jpg","11.jpg","12.jpg"],"cover":"cover.jpg"},"16849359d70e30":{"files":["1.jpg","2.mp4","3.mp4","4.mp4","5.jpg","6.jpg","7.mp4","8.jpg","9.jpg","10.mp4","11.jpg","12.mp4","13.jpg","14.mp4","15.mp4","16.jpg","17.mp4","18.jpg","19.jpg","20.jpg"],"cover":"cover.jpg"},"16a006a6c04570":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.jpg","9.mp4","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg","15.jpg"],"cover":"cover.jpg"},"167ee2a94a1ebf":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.mp4","7.mp4","8.jpg","9.jpg","10.mp4","11.jpg","12.jpg","13.mp4","14.jpg","15.jpg","16.jpg"],"cover":"cover.jpg"},"167343f4383b06":{"files":["1.jpg"],"cover":"cover.jpg"},"15":{"files":["1.mp4","2.jpg","3.mp4","4.jpg","5.mp4","6.mp4","7.mp4","8.mp4","9.jpg","10.mp4","11.mp4","12.jpg","13.mp4","14.jpg","15.mp4","16.mp4","17.mp4","18.jpg","19.mp4","20.mp4","21.mp4","22.jpg","23.jpg","24.jpg","25.jpg","26.jpg"],"cover":"cover.mp4"},"167b3f7d23c45e":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.mp4","9.jpg","10.jpg","11.mp4","12.jpg","13.jpg","14.mp4","15.jpg","16.jpg"],"cover":"cover.jpg"},"pdrn":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.jpg","9.mp4","10.jpg","11.jpg","12.jpg","13.jpg","14.mp4","15.mp4","16.mp4","17.jpg"],"cover":"cover.jpg"},"1676df7093a3ac":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.mp4","9.jpg","10.mp4","11.mp4","12.mp4","13.jpg","14.jpg","15.jpg","16.jpg","17.jpg"],"cover":"cover.jpg"},"164be284fb133c":{"files":["1.jpg","2.jpg","3.mp4","4.jpg","5.jpg","6.jpg","7.mp4","8.mp4","9.jpg","10.jpg","11.mp4","12.jpg","13.jpg","14.jpg","15.jpg","16.jpg"],"cover":"cover.jpg"},"1648931ace7d65":{"files":["1.jpg","2.mp4","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.mp4","9.mp4","10.jpg","11.mp4","12.mp4","13.mp4","14.mp4","15.mp4","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg"],"cover":"cover.jpg"},"1648927124daaa":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.mp4","7.mp4","8.jpg","9.jpg"],"cover":"cover.jpg"},"166e22345e4d5a":{"files":["1.jpg","2.jpg","3.jpg","4.mp4","5.jpg","6.mp4","7.jpg","8.jpg","9.mp4","10.mp4","11.mp4","12.jpg","13.mp4","14.mp4","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg"],"cover":"cover.jpg"},"164897cae7a2e5":{"files":["1.jpg","2.jpg","3.jpg","4.mp4","5.jpg","6.mp4","7.mp4","8.mp4","9.jpg","10.jpg","11.jpg"],"cover":"cover.jpg"},"qr":{"files":["1.jpg","2.jpg","3.jpg","4.mp4","5.jpg","6.mp4","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg"],"cover":"cover.jpg"},"164891d2490d05":{"files":["1.mp4","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.mp4","8.jpg","9.mp4","10.mp4","11.mp4","12.mp4","13.jpg","14.mp4","15.mp4","16.mp4","17.jpg","18.mp4","19.mp4","20.jpg","21.jpg","22.jpg","23.jpg","24.jpg"],"cover":"cover.jpg"},"164892ea542d85":{"files":["1.jpg","2.mp4","3.mp4","4.mp4","5.jpg","6.mp4","7.jpg","8.mp4","9.mp4","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg"],"cover":"cover.jpg"},"16489787d5c37e":{"files":["1.jpg"],"cover":"cover.jpg"},"16489795da99a6":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.mp4","12.jpg","13.jpg","14.mp4","15.jpg","16.jpg","17.jpg","18.mp4","19.mp4","20.jpg","21.jpg","22.jpg"],"cover":"cover.jpg"},"1648930454b45f":{"files":["1.jpg","2.jpg","3.mp4","4.jpg","5.mp4","6.jpg","7.jpg","8.mp4","9.jpg","10.jpg","11.mp4","12.jpg","13.mp4","14.mp4","15.jpg","16.jpg","17.jpg","18.jpg"],"cover":"cover.jpg"},"1648977a615f5c":{"files":["1.jpg"],"cover":"cover.jpg"},"164897e0c69b70":{"files":["1.mp4","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.mp4","9.mp4","10.mp4","11.jpg","12.jpg","13.mp4","14.jpg","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg"],"cover":"cover.jpg"},"11":{"files":[],"cover":"cover.jpg"},"166e225d1cf6d8":{"files":["1.jpg"],"cover":"cover.jpg"},"1-1":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"166daeed1d55ce":{"files":["1.jpg"],"cover":"cover.jpg"},"166daee973098d":{"files":["1.jpg"],"cover":"cover.jpg"},"166daee2a595e1":{"files":["1.jpg"],"cover":"cover.jpg"},"164894148dfdee":{"files":["1.jpg"],"cover":"cover.jpg"},"164892c0440ddd":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.mp4","7.mp4","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.mp4","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg"],"cover":"cover.jpg"},"164892874dffc8":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.mp4","7.jpg","8.jpg","9.jpg","10.jpg","11.mp4","12.mp4","13.jpg","14.mp4","15.mp4","16.mp4","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg","23.jpg","24.jpg"],"cover":"cover.jpg"},"164893d31e30f9":{"files":["1.mp4","2.jpg","3.jpg","4.jpg"],"cover":"cover.mp4"},"16489419522500":{"files":["1.mp4","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"],"cover":"cover.mp4"},"164897b5a7b991":{"files":["1.jpg","2.jpg","3.jpg","4.mp4","5.jpg","6.jpg","7.mp4","8.jpg","9.mp4","10.jpg","11.jpg","12.jpg","13.jpg","14.mp4","15.mp4","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg"],"cover":"cover.jpg"},"164897a9a78c3b":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.jpg","7.mp4","8.mp4","9.mp4","10.jpg","11.mp4","12.jpg","13.jpg","14.jpg","15.jpg","16.jpg","17.jpg"],"cover":"cover.jpg"},"164893c0ded880":{"files":["1.jpg"],"cover":"cover.jpg"},"1648943edd82df":{"files":["1.mp4"],"cover":"cover.mp4"},"164893410950c6":{"files":["1.jpg"],"cover":"cover.jpg"},"164893bafb6d02":{"files":["1.jpg"],"cover":"cover.jpg"},"164893c3b75675":{"files":["1.mp4","2.jpg","3.mp4","4.jpg","5.jpg"],"cover":"cover.jpg"},"16489438e82a29":{"files":["1.jpg"],"cover":"cover.jpg"},"16489410c62f43":{"files":["1.jpg"],"cover":"cover.jpg"},"1648940d5cb47e":{"files":[],"cover":"cover.jpg"},"164894057d1281":{"files":["1.jpg"],"cover":"cover.jpg"},"1648940051cda3":{"files":["1.jpg"],"cover":"cover.jpg"},"164893f7001ecd":{"files":["1.jpg"],"cover":"cover.jpg"},"164893f2dbfb6e":{"files":["1.jpg"],"cover":"cover.jpg"},"164893e44d421a":{"files":[],"cover":"cover.jpg"},"164893be032370":{"files":["1.jpg"],"cover":"cover.jpg"},"2411-3":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/UnpqiwE9cug/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"164893eaf6337f":{"files":["1.jpg"],"cover":"cover.jpg"},"2412-event":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/3a5AyTMD_Qz/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"16489421d440b0":{"files":["1.mp4","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg"],"cover":"cover.mp4"},"2411-2":{"files":["1.jpg",{"video":"https://www-ccv.adobe.io/v1/player/ccv/79T6MEvRIbU/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"2412-sns":{"files":["1.jpg"],"cover":"cover.jpg"},"2411-1":{"files":["1.jpg"],"cover":"cover.jpg"},"16734430d09262":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/E4WXMd_iiPh/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"1673443706d70d":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/UTQxQdXwiDk/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"1673442534a46c":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/GPy2_v7NZny/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"16734413808e26":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/PFSKs-ftApI/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"1673442b23ea4b":{"files":["1.mp4"],"cover":"cover.mp4"},"164893da7ea8b6":{"files":["1.mp4","2.jpg","3.jpg","4.mp4","5.jpg","6.jpg","7.jpg"],"cover":"cover.mp4"},"moo100-sns-1":{"files":["1.jpg"],"cover":"cover.jpg"},"167343ff104013":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"moo100-sns-3":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/2T3RJACZbQp/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"1673440cd02d0a":{"files":["1.mp4"],"cover":"cover.mp4"},"16a954a61a892c":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"],"cover":"cover.jpg"},"moo100-sns-2":{"files":["1.jpg"],"cover":"cover.jpg"},"moo100-sns":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/Rn5VW9BuCrH/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"sns-3":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/7qtzB8A9Zyp/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae9debf4e7":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/Jn9Hf-i4mRD/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae99643781":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/GHAPtuiFGnT/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"16a95493fa2151":{"files":["1.mp4","2.mp4","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"],"cover":"cover.mp4"},"166dae8118a004":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/GrD2bFMjvPA/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"sns-1":{"files":["1.jpg"],"cover":"cover.jpg"},"166daea52314cc":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/5rxHpb_jgXa/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae9668c2fe":{"files":["1.mp4"],"cover":"cover.mp4"},"166dae54498530":{"files":["1.mp4"],"cover":"cover.mp4"},"166dae4b8e6f5b":{"files":["1.jpg"],"cover":"cover.jpg"},"166dae7e66983d":{"files":["1.jpg"],"cover":"cover.jpg"},"166dae17d31ec5":{"files":["1.mp4"],"cover":"cover.mp4"},"166dae501178e4":{"files":["1.jpg"],"cover":"cover.jpg"},"166dae3ecb57a5":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/LuowEmuooRf/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae6654b09b":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/6ho5NKR-MNU/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae3b095a98":{"files":["1.jpg"],"cover":"cover.jpg"},"166daea9fefff1":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/UmyNdDtCrFG/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166dae58aaf351":{"files":[{"video":"https://www-ccv.adobe.io/v1/player/ccv/Lcq6PRvuruC/embed?bgcolor=%23141211&api_key=BehancePro2View"}],"cover":"cover.jpg"},"166daeb93c1639":{"files":["1.jpg"],"cover":"cover.jpg"},"166dae5e098fc6":{"files":["1.mp4"],"cover":"cover.mp4"},"166dae62c38b4d":{"files":["1.jpg"],"cover":"cover.jpg"},"20":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"zigtag-vmd":{"files":[],"cover":null},"1681c6b5217d7d":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"zigtag":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"1677f0b5c3850f":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"],"cover":"cover.jpg"},"1681c6e24edb6f":{"files":["1.jpg","2.jpg","3.jpg","4.jpg"],"cover":"cover.jpg"},"1686e2094c2625":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"],"cover":"cover.jpg"},"1686e1fe0f25c7":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"vmd":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"16746a0cf7a02a":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"],"cover":"cover.jpg"},"168520a1130bdf":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"1663e16bc0edfd":{"files":["1.jpg"],"cover":null},"1663e18215b026":{"files":["1.jpg"],"cover":null},"167469fee90738":{"files":["1.jpg","2.jpg","3.jpg","4.jpg"],"cover":"cover.jpg"},"1663e167d6f1ae":{"files":["1.jpg"],"cover":null},"166daed04346f5":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"1663e17017f8ba":{"files":["1.jpg"],"cover":null},"1663e1653471b3":{"files":["1.jpg"],"cover":null},"1663e15ecb5f82":{"files":["1.jpg"],"cover":null},"166daef99ba6e3":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"],"cover":"cover.jpg"},"164940c0a398b1":{"files":["1.jpg","2.jpg"],"cover":"cover.jpg"},"164904d38c1b92":{"files":["1.jpg"],"cover":"cover.jpg"},"164904e061d05c":{"files":["1.jpg"],"cover":"cover.jpg"},"164904dd6a9882":{"files":["1.jpg"],"cover":"cover.jpg"},"164904d7c7ebf7":{"files":["1.jpg"],"cover":"cover.jpg"},"164904da78b79a":{"files":["1.jpg"],"cover":"cover.jpg"},"16490525758b4e":{"files":["1.jpg","2.jpg","3.jpg"],"cover":"cover.jpg"},"68":{"files":["1.jpg"],"cover":"cover.jpg"},"164904cf18ae4e":{"files":["1.jpg"],"cover":"cover.jpg"},"1649053e90540f":{"files":["1.jpg","2.jpg","3.jpg","4.jpg","5.mp4","6.mp4"],"cover":"cover.jpg"}};
+const VIDEO_SIZE = {"2411-3":[[720,125.0]],"2412-event":[[720,125.0]],"2411-2":[[720,125.0]],"16734430d09262":[[1080,100.0]],"1673443706d70d":[[720,125.0]],"1673442534a46c":[[1080,100.0]],"16734413808e26":[[1080,100.0]],"moo100-sns-3":[[360,125.0]],"moo100-sns":[[720,100.0]],"sns-3":[[360,125.0]],"166dae9debf4e7":[[720,100.0]],"166dae99643781":[[360,125.0]],"166dae8118a004":[[360,125.0]],"166daea52314cc":[[360,125.0]],"166dae3ecb57a5":[[720,100.0]],"166dae6654b09b":[[360,125.0]],"166daea9fefff1":[[720,100.0]],"166dae58aaf351":[[720,100.0]]};
+const ORIGIN = "https://kon21107.myportfolio.com/";
+
+/* [제목, id(폴더 이름), 연도] */
+const CATS = [
+ {key:"detail", name:"상세페이지", desc:"뷰티·헤어·유아 브랜드의 상품 상세페이지. 제품 소구점 정리부터 촬영 컷 구성, 타이포그래피까지.", items:[
+  ["슈퍼블래스트앰플 비타민15%","15",2026],["파인애플 PDRN 필 클렌저","pdrn",2026],["논나노 하이퍼 선크림","16a006849402b6",2026],["슈퍼 하이드라 앰플 비타민","16a006a6c04570",2026],
+  ["나푸라 s6","s6",2025],["시카 노세범 헤어파우더","1686e21c691028",2025],["더마 액티브 샴푸","16849359d70e30",2025],["매트 홀딩 왁스","167ee2a94a1ebf",2025],["글로우배리어컬크림","167b3f7d23c45e",2025],
+  ["자몽버터트리트먼트","1676df7093a3ac",2024],["라임프레시너 미스트","167343f4383b06",2024],["자몽워터샴푸","166e22345e4d5a",2024],
+  ["하베브릭스 변신큐브","164be284fb133c",2023],["센서리북","1648931ace7d65",2023],
+  ["도노도노 2022 선풍기","164891d2490d05",2022],["두두스토리 슈퍼피플","1648927124daaa",2022],["하베브릭스 아기체육관 장난감","1648930454b45f",2022],["두두스토리 QR놀이책","qr",2022],["두두스토리 마음테라피","16489795da99a6",2022],["두두스토리 퍼스트디스커버리","164897cae7a2e5",2022],["두두스토리 변신큐브 장난감_22년형","164892ea542d85",2022],
+  ["도노도노 모듈러퍼즐매트","164897e0c69b70",2021],["도노도노 이탈방지 경추베개","164892874dffc8",2021],["도노도노 베이비룸","164892c0440ddd",2021],["도노도노 올핏하이가드범퍼침대","164897b5a7b991",2021],["도노도노 올핏매트","164897a9a78c3b",2021],["아이너바움 젖병세정제","16489787d5c37e",2021],["아이너바움 식기세척기","1648977a615f5c",2021]
+ ]},
+ {key:"event", name:"이벤트페이지", desc:"시즌 기획전, 런칭 이벤트, 특가 페이지.", items:[
+  ["1월이벤트","1-1"],["무백 11월 이벤트","11"],["부라더스 이벤트","166e225d1cf6d8"],["아하바하 두피스케일러","166daeed1d55ce"],["여름이벤트","166daee973098d"],["모두투어이벤트","166daee2a595e1"],["만우절특가","16489421d440b0"],["위틀 장보기","16489419522500"],["위틀 장보기 2","164893d31e30f9"],["매트기획전","164894148dfdee"],["온라인 베이비페어","164893c3b75675"],["아울렛특가","164893c0ded880"],["놀이템 추천","164893da7ea8b6"],["아울렛이벤트","1648943edd82df"],["나들이 추천템","164893410950c6"],["순수모달 아기이불","16489438e82a29"],["쿨매트 런칭기획전","16489410c62f43"],["어린이날","164893bafb6d02"],["범퍼침대 런칭기획전","164894057d1281"],["알러지케어 런칭기획전","1648940d5cb47e"],["모달이불 런칭기획전","1648940051cda3"],["베이비룸 런칭기획전","164893f7001ecd"],["블랙 프라이데이","164893f2dbfb6e"],["슈너글 런칭이벤트","164893eaf6337f"],["설프라이즈","164893be032370"],["설맞이","164893e44d421a"]
+ ]},
+ {key:"sns", name:"SNS광고", desc:"올리브영·자사몰 프로모션과 브랜드 SNS 광고 소재.", items:[
+  ["논나노 하이퍼 쉴드 선크림","16a954a61a892c"],["파인애플클렌저","16a95493fa2151"],["2411_올영3","2411-3"],["2411_올영2","2411-2"],["2411_올영1","2411-1"],["2412_event","2412-event"],["2412_sns","2412-sns"],["자몽워터 트리트먼트","1673443706d70d"],["멜팅콜라겐","16734430d09262"],["블랙베리오일세럼","1673442b23ea4b"],["아하바하 두피 스케일러","1673442534a46c"],["멜팅콜라겐 2","16734413808e26"],["밤부민트샴푸","1673440cd02d0a"],["블랙베리오일세럼 2","167343ff104013"],
+  ["MOO100 SNS","moo100-sns-1"],["MOO100 SNS 2","moo100-sns-2"],["MOO100 SNS 3","moo100-sns-3"],["MOO100 SNS 4","moo100-sns"],["SNS광고","sns-1"],["SNS","sns-3"],
+  ["광고 01","166dae9debf4e7"],["광고 02","166dae17d31ec5"],["광고 03","166dae99643781"],["광고 04","166dae9668c2fe"],["광고 05","166dae8118a004"],["광고 06","166dae54498530"],["광고 07","166daea52314cc"],["광고 08","166dae4b8e6f5b"],["광고 09","166dae7e66983d"],["광고 10","166dae3b095a98"],["광고 11","166dae501178e4"],["광고 12","166dae3ecb57a5"],["광고 13","166dae6654b09b"],["광고 14","166daeb93c1639"],["광고 15","166dae62c38b4d"],["광고 16","166daea9fefff1"],["광고 17","166dae5e098fc6"],["광고 18","166dae58aaf351"]
+ ]},
+ {key:"package", name:"패키지디자인", desc:"헤어·바디 제품의 용기, 단상자, 기획세트 패키지.", items:[
+  ["시카 노세범 헤어파우더","1686e2094c2625"],["더마 액티브 샴푸","1681c6e24edb6f"],["자몽워터트리트먼트 기획세트","1681c6b5217d7d"],["매트 홀드 왁스","1677f0b5c3850f"],["글로우 배리어 컬크림","16746a0cf7a02a"],["라임스칼프","166daef99ba6e3"],["자몽워터 스틱파우치 20개입 단상자","20"]
+ ]},
+ {key:"branding", name:"브랜딩", desc:"브랜드 아이덴티티 작업.", items:[["ZIGTAG","zigtag"]]},
+ {key:"print", name:"인쇄 및 출력", desc:"VMD, 옥외·판넬 광고, 엽서 등 오프라인 매체.", items:[
+  ["ZIGTAG VMD","zigtag-vmd"],["마라톤 샘플 패키지","1686e1fe0f25c7"],["시코르 VMD","vmd"],["소비재엽서","168520a1130bdf"],["판넬광고","167469fee90738"],["옥외광고","166daed04346f5"]
+ ]},
+ {key:"apparel", name:"어패럴", desc:"스포츠웨어·수영복 브랜드 상품 작업.", items:[
+  ["풀앤비치 그래픽 릴렉스핏 롱슬리브","1663e18215b026"],["풀앤비치 홀터넥 비키니","1663e17017f8ba"],["풀앤비치 래쉬가드","1663e16bc0edfd"],["풀앤비치 그래픽 릴렉스핏 숏슬리브","1663e167d6f1ae"],["시그니처 로고 볼캡","1663e1653471b3"],["시그니처 로고 크루 삭스","1663e15ecb5f82"]
+ ]},
+ {key:"web", name:"웹 m/pc", desc:"쇼핑몰 모바일·PC 화면 개선과 메인 디자인.", items:[
+  ["위틀스토어 m/pc 개선","164940c0a398b1"],["이웃사람","1649053e90540f"],["피코크","16490525758b4e"]
+ ]},
+ {key:"travel", name:"이벤트페이지(여행)", desc:"여행 상품 프로모션 페이지.", items:[
+  ["바르셀로나 여행","164904e061d05c"],["러시아의 매력","164904d38c1b92"],["스위스 혜택","164904dd6a9882"],["모나코 왕국","164904da78b79a"],["반반한 여행","164904d7c7ebf7"],["68만원의 혜택","68"],["내 맘에 꼭 드는 여행","164904cf18ae4e"]
+ ]}
+];
+
+const ALL = [];
+CATS.forEach(c => c.items.forEach(([title,id,year]) => ALL.push({title,id,year:year||"",cat:c.key,catName:c.name,m:MEDIA[id]||{files:[],cover:null}})));
+
+/* 이미지 없을 때 보여줄 톤 (카테고리별) */
+const TONES = {detail:["#3a2a24","#f3c7b0"],event:["#2c2a3a","#cfc6f2"],sns:["#3a2430","#f2b9cf"],package:["#24332c","#bfe3cd"],branding:["#33302a","#eadfc4"],print:["#2a3036","#c3d5e6"],apparel:["#2f2a24","#e8d3b6"],web:["#243034","#b9dde4"],travel:["#2a3328","#d2e7c1"]};
+
+const $ = s => document.querySelector(s);
+const nav=$("#nav"), grid=$("#grid");
+let current = "all", list = ALL;
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+function buildNav(){
+  const rows=[{key:"all",name:"전체",count:ALL.length},...CATS.map(c=>({key:c.key,name:c.name,count:c.items.length}))];
+  nav.innerHTML=rows.map(r=>`<li><button data-k="${r.key}" aria-pressed="${r.key===current}"><span class="lab">${esc(r.name)}</span><span class="cnt">${r.count}</span></button></li>`).join("");
+}
+function ph(p){
+  const [bg,fg]=TONES[p.cat];
+  return `<div class="ph" style="--ph-bg:${bg};--ph-fg:${fg}"><span class="tag">${esc(p.catName)}</span><span class="big">${esc(p.title)}</span></div>`;
+}
+function mediaTag(src,alt,lazy){
+  if(/\.mp4$/.test(src)) return `<video src="${src}" autoplay muted loop playsinline preload="metadata" aria-label="${esc(alt)}"></video>`;
+  return `<img ${lazy?'loading="lazy"':''} decoding="async" alt="${esc(alt)}" src="${src}">`;
+}
+function thumb(p){
+  const f = p.m.cover || p.m.files.find(x=>typeof x==="string");
+  if(!f) return ph(p);
+  return ph(p) + mediaTag(`images/${p.id}/${f}`, p.title, true);
+}
+function render(){
+  const c=CATS.find(x=>x.key===current);
+  list = c ? ALL.filter(p=>p.cat===current) : ALL;
+  $("#catTitle").textContent = c ? c.name : "전체 작업";
+  $("#catDesc").textContent = c ? c.desc : "2021년부터 이어온 커머스 디자인 작업. 상세페이지와 이벤트페이지를 중심으로 SNS 광고, 패키지, 오프라인 매체까지.";
+  $("#catCount").textContent = list.length + " projects";
+  grid.innerHTML = list.map((p,i)=>`<button class="card" data-i="${i}"><div class="thumb">${thumb(p)}</div><div class="cap"><span class="t">${esc(p.title)}</span><span class="c">${esc(p.catName)}</span><span class="y">${p.year}</span></div></button>`).join("");
+  nav.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===current));
+}
+nav.addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  current=b.dataset.k; render();
+  try{history.replaceState(null,"",current==="all"?location.pathname:"#"+current)}catch(_){}
+  
+});
+
+/* viewer */
+const viewer=$("#viewer"); let vi=0, lastFocus=null;
+function openViewer(i){
+  vi=i; const p=list[i];
+  $("#vTitle").textContent=p.title;
+  $("#vMeta").textContent=[p.catName,p.year].filter(Boolean).join(" · ");
+  let body="", vi2=0;
+  p.m.files.forEach((f,k)=>{
+    if(typeof f==="string"){ body+=mediaTag(`images/${p.id}/${f}`, `${p.title} ${k+1}`, k>1); return; }
+    const [w,r]=(VIDEO_SIZE[p.id]||[])[vi2++]||[720,125];
+    body+=`<div class="vid" style="max-width:${w}px"><div style="padding-bottom:${r}%"><iframe title="${esc(p.title)} 영상" src="${f.video}" allowfullscreen loading="lazy"></iframe></div>
+      <a class="vlink" href="${ORIGIN}${p.id}" target="_blank" rel="noopener">영상이 안 보이면 원본 페이지에서 보기 ↗</a></div>`;
+  });
+  if(p.m.more) body+=`<div class="empty" style="margin-top:24px"><strong>${p.m.more}장 더 있어요</strong>미리보기에는 일부만 담았어요. 실제 사이트에서는 전체가 보여요.</div>`;
+  if(!body){
+    body = p.m.cover ? mediaTag(`images/${p.id}/${p.m.cover}`, p.title, false)
+      : `<div class="empty"><strong>${esc(p.title)}</strong>상세 내용을 준비 중이에요.</div>`;
+  }
+  $("#vBody").innerHTML=body;
+  const prev=list[i-1], next=list[i+1];
+  $("#vPrev").textContent=prev?"← "+prev.title:""; $("#vPrev").hidden=!prev;
+  $("#vNext").textContent=next?next.title+" →":""; $("#vNext").hidden=!next;
+  if(viewer.hidden){lastFocus=document.activeElement}
+  viewer.hidden=false; viewer.scrollTop=0; document.body.style.overflow="hidden"; $("#vClose").focus();
+}
+function closeViewer(){viewer.hidden=true;document.body.style.overflow="";lastFocus&&lastFocus.focus()}
+grid.addEventListener("click",e=>{const c=e.target.closest(".card"); if(c) openViewer(+c.dataset.i)});
+$("#vClose").onclick=closeViewer;
+$("#vPrev").onclick=()=>openViewer(vi-1);
+$("#vNext").onclick=()=>openViewer(vi+1);
+addEventListener("keydown",e=>{
+  if(viewer.hidden) return;
+  if(e.key==="Escape") closeViewer();
+  if(e.key==="ArrowLeft"&&vi>0) openViewer(vi-1);
+  if(e.key==="ArrowRight"&&vi<list.length-1) openViewer(vi+1);
+});
+
+const h=(location.hash||"").slice(1);
+if(CATS.some(c=>c.key===h)) current=h;
+buildNav(); render();
+
+/* 상단 이름을 화면 폭에 꽉 맞춤 */
+const hn=document.querySelector(".hero-name");
+function fitName(){
+  hn.style.fontSize="100px";
+  const w=hn.firstElementChild.getBoundingClientRect().width, target=hn.clientWidth;
+  if(w>0) hn.style.fontSize=(100*target/w*0.995)+"px";
+}
+fitName(); addEventListener("resize",fitName);
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitName);
+
+/* 흐르는 띠 */
+function ticker(el,words,sep){
+  const one=words.map(w=>`<span class="wide">${w}</span>${sep}`).join("");
+  el.innerHTML=one.repeat(6)+one.repeat(6);
+}
+ticker(document.getElementById("t1"),["Detail Page","Event Page","Social Ads","Package","Branding","VMD","Outdoor Ads","Web m/pc"],'<span class="wide">✦</span>');
+ticker(document.getElementById("t2"),["Selected Work"],'<span class="wide dot">✦</span>');
+
+/* 대표 이미지 3장 */
+const HERO=["pdrn","16a006849402b6","16a006a6c04570"];
+document.getElementById("hero").innerHTML=HERO.map(id=>{
+  const p=ALL.find(x=>x.id===id); if(!p) return "";
+  const f=p.m.cover||p.m.files.find(x=>typeof x==="string");
+  return `<figure data-id="${id}" style="cursor:pointer">${f?mediaTag(`images/${id}/${f}`,p.title,false):""}<figcaption>${esc(p.title)}</figcaption></figure>`;
+}).join("");
+document.getElementById("hero").addEventListener("click",e=>{
+  const f=e.target.closest("figure"); if(!f) return;
+  current="all"; render(); const i=list.findIndex(x=>x.id===f.dataset.id); if(i>=0) openViewer(i);
+});
+
+/* 숫자 */
+document.getElementById("sProjects").textContent=ALL.length;
+document.getElementById("sDetail").textContent=ALL.filter(p=>p.cat==="detail").length;
+document.getElementById("sSns").textContent=ALL.filter(p=>p.cat==="sns").length;
+</script>
+
+</body>
+</html>
