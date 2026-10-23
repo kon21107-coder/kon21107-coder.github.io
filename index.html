@@ -76,14 +76,31 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .brands .label::before{content:"";width:28px;height:1px;background:var(--fg)}
 .brands span.b{font-family:var(--wide);font-variation-settings:"wdth" 112;font-weight:700;font-size:16px;letter-spacing:-.01em;color:#2a2a2a}
 
-/* services */
-.services{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;padding-block:24px 80px}
-.services-left{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
-.services h3{margin:14px 0 0;font-size:clamp(30px,3.6vw,46px);line-height:1}
-.svc-list{display:flex;flex-direction:column;gap:14px}
-.svc{background:var(--panel);padding:22px 24px}
-.svc h4{display:flex;align-items:center;gap:10px;margin:0 0 8px;font-size:15px}
-.svc p{margin:0;font-size:13.5px;color:#4a4a46;word-break:keep-all;max-width:60ch}
+/* featured case */
+.featured{padding-block:24px 72px}
+.feat-head{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:10px;margin-bottom:28px}
+.label.muted{color:var(--muted)}
+.feat{padding:0;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;text-align:left;width:100%;align-items:end}
+.feat-title{display:flex;flex-direction:column;gap:18px;padding-bottom:6px}
+.feat h3{margin:0;font-size:clamp(40px,5.6vw,84px);line-height:.9;letter-spacing:-.01em}
+.feat p{margin:0;color:#4a4a46;font-size:15px;line-height:1.7;word-break:keep-all;max-width:36ch}
+.feat-cta{align-self:flex-start;font-size:11px;padding:10px 16px;border:1px solid var(--fg);transition:background .2s}
+.feat:hover .feat-cta{background:var(--lime)}
+.feat-ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.feat-ba figure{margin:0;overflow:hidden}
+.feat-ba img{display:block;width:100%;aspect-ratio:646/465;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.feat:hover .feat-ba img{transform:scale(1.03)}
+.feat-ba figcaption{margin-top:8px;color:var(--muted)}
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px 56px;padding-block:20px 88px;border-top:1px solid var(--line);padding-top:10px}
+.about > .label{grid-column:1/-1}
+.statement{margin:18px 0 0;font-size:clamp(22px,2.6vw,34px);line-height:1.45;font-weight:600;letter-spacing:-.02em;word-break:keep-all}
+.statement mark{background:var(--lime);color:inherit;padding:0 .1em}
+.disc{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--hair)}
+.disc li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.disc li span{font-size:clamp(15px,1.5vw,19px)}
+.disc li small{color:var(--muted);font-size:13px;text-align:right}
+.about .me{grid-column:1;align-self:end}
 .me{display:flex;align-items:center;gap:12px}
 .me .av{width:44px;height:44px;background:var(--lime);border:1px solid var(--fg);display:grid;place-items:center;font-family:var(--poster);font-size:18px}
 .me small{display:block;color:var(--muted);font-size:11px}
@@ -103,7 +120,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .cnt{font-family:var(--mono);font-size:11px;opacity:.6}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 14px}
-.card{display:flex;flex-direction:column;gap:10px;text-align:left;width:100%}
+.card{padding:0;display:flex;flex-direction:column;gap:10px;text-align:left;width:100%}
 .thumb{position:relative;aspect-ratio:1000/781;max-width:100%;width:100%;overflow:hidden;background:var(--panel)}
 .thumb img,.thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .card:hover .thumb img,.card:hover .thumb video{transform:scale(1.035)}
@@ -233,8 +250,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;padding-block:32px 20px}
   .brands{gap:12px 24px;padding-bottom:44px}
   .brands .label{width:100%}
-  .services{grid-template-columns:minmax(0,1fr);gap:24px;padding-bottom:56px}
-  .services-left{gap:20px}
+  .feat{grid-template-columns:minmax(0,1fr);gap:24px}
+  .feat-head .muted{display:none}
+  .about{grid-template-columns:minmax(0,1fr);padding-bottom:56px}
+  .about .me{grid-column:auto}
   .grid{grid-template-columns:minmax(0,1fr);gap:28px}
   .contact{grid-template-columns:minmax(0,1fr)}
   .contact-info{text-align:left}
@@ -254,15 +273,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <a class="logo wide" href="#top"><svg class="spark"><use href="#sp"/></svg>Sera Kim</a>
     <nav class="menu">
       <a class="wide" href="#work">Work</a>
-      <a class="wide" href="#services">Services</a>
+      <a class="wide" href="#about">About</a>
       <a class="wide cta" href="#contact">Contact</a>
     </nav>
   </header>
 
   <h1 class="hero-name" id="top"><span>Sera Kim</span></h1>
   <div class="sub">
-    <h2 class="wide">Commerce &amp; Beauty Designer</h2>
-    <p>뷰티·헤어·유아 브랜드의 상세페이지, 이벤트, SNS 광고, 패키지를 디자인합니다.</p>
+    <h2 class="wide">Brand Designer</h2>
+    <p>브랜드의 방향을 세우고, 아이덴티티부터 패키지와 커머스까지 하나의 경험으로 이어지도록 디자인합니다.</p>
   </div>
 
   <div class="ticker" aria-hidden="true"><div class="run" id="t1"></div></div>
@@ -270,8 +289,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
   <section class="stats" aria-label="작업 요약">
     <div class="stat"><span class="label">Projects</span><b id="sProjects">122</b></div>
-    <div class="stat"><span class="label">Detail pages</span><b id="sDetail">28</b></div>
-    <div class="stat"><span class="label">SNS ads</span><b id="sSns">38</b></div>
+    <div class="stat"><span class="label">Brands</span><b>8<i>+</i></b></div>
+    <div class="stat"><span class="label">Packages</span><b id="sPkg">7</b></div>
     <div class="stat"><span class="label">Years</span><b>5<i>+</i></b></div>
   </section>
 
@@ -280,22 +299,37 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <span class="b">ZIGTAG</span><span class="b">MOO100</span><span class="b">NAPURA</span><span class="b">도노도노</span><span class="b">두두스토리</span><span class="b">하베브릭스</span><span class="b">시코르</span><span class="b">모두투어</span>
   </div>
 
-  <section class="services" id="services">
-    <div class="services-left">
-      <div>
-        <svg class="spark" style="width:22px;height:22px"><use href="#sp"/></svg>
-        <h3 class="wide">Design<br>Services</h3>
-      </div>
-      <div class="me">
-        <div class="av">SK</div>
-        <div><span class="wide" style="font-size:12px">Sera Kim</span><small>커머스 &amp; 뷰티 그래픽 디자이너</small></div>
-      </div>
+  <section class="featured" id="featured">
+    <div class="feat-head">
+      <span class="label">Featured case</span>
+      <span class="label muted">Branding · Repositioning &amp; Identity</span>
     </div>
-    <div class="svc-list">
-      <div class="svc"><h4 class="wide"><svg class="spark"><use href="#sp"/></svg>Detail Page</h4><p>제품의 소구점을 정리하고 촬영 컷 구성부터 타이포그래피까지, 구매로 이어지는 상세페이지를 만듭니다.</p></div>
-      <div class="svc"><h4 class="wide"><svg class="spark"><use href="#sp"/></svg>Event &amp; Promotion</h4><p>시즌 기획전, 런칭 이벤트, 특가 페이지를 브랜드 톤에 맞게 빠르게 설계합니다.</p></div>
-      <div class="svc"><h4 class="wide"><svg class="spark"><use href="#sp"/></svg>Social Ads</h4><p>올리브영·자사몰 프로모션과 브랜드 SNS 광고 소재를 이미지와 영상으로 제작합니다.</p></div>
-      <div class="svc"><h4 class="wide"><svg class="spark"><use href="#sp"/></svg>Package &amp; Print</h4><p>단상자, 기획세트, VMD와 옥외 광고까지 오프라인 매체로 이어지는 디자인을 합니다.</p></div>
+    <button class="feat" data-open="zigtag" aria-label="ZIGTAG 리브랜딩 케이스 스터디 보기">
+      <div class="feat-title">
+        <h3 class="wide">ZIGTAG<br>Rebranding</h3>
+        <p>패션 더마에서 조이풀 스킨웨어로.<br>콘셉트 전환부터 컬러·서체·패턴, 제품 연출까지 하나의 시스템으로.</p>
+        <span class="feat-cta wide">케이스 스터디 보기 →</span>
+      </div>
+      <div class="feat-ba">
+        <figure><img loading="lazy" src="images/zigtag/cs/before.jpg" alt="리브랜딩 전"><figcaption class="label">Before · Fashion Derma</figcaption></figure>
+        <figure><img loading="lazy" src="images/zigtag/cs/after.jpg" alt="리브랜딩 후"><figcaption class="label">After · Joyful Skinwear</figcaption></figure>
+      </div>
+    </button>
+  </section>
+
+  <section class="about" id="about">
+    <span class="label">About</span>
+    <p class="statement">브랜드가 무엇을 말할지 먼저 정하고, 그 이야기가 로고부터 패키지, 상세페이지 한 장까지 <mark>같은 목소리</mark>로 읽히도록 설계합니다.</p>
+    <ol class="disc">
+      <li><span class="wide">Brand Repositioning</span><small>콘셉트와 방향 정의</small></li>
+      <li><span class="wide">Identity System</span><small>심볼 · 컬러 · 서체 · 패턴</small></li>
+      <li><span class="wide">Packaging</span><small>용기 · 단상자 · 기획세트</small></li>
+      <li><span class="wide">Brand Commerce</span><small>상세페이지 · 이벤트 · SNS</small></li>
+      <li><span class="wide">Retail &amp; VMD</span><small>매장 연출 · 옥외 · 인쇄물</small></li>
+    </ol>
+    <div class="me">
+      <div class="av">SK</div>
+      <div><span class="wide" style="font-size:12px">Sera Kim</span><small>Brand Designer · Seoul</small></div>
     </div>
   </section>
 
@@ -311,7 +345,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </section>
 
   <section class="contact" id="contact">
-    <h2>Let's make<br>it <em>sell</em></h2>
+    <h2>Let's build<br>a <em>brand</em></h2>
     <div class="contact-info">
       <span class="label">Contact</span>
       <span>이메일 주소를 입력하세요</span>
@@ -372,6 +406,9 @@ const CATS = [
  ]}
 ];
 
+/* 브랜드 작업이 먼저 보이도록 카테고리 순서 지정 */
+const ORDER=["branding","package","detail","print","event","sns","apparel","web","travel"];
+CATS.sort((a,b)=>ORDER.indexOf(a.key)-ORDER.indexOf(b.key));
 const ALL = [];
 CATS.forEach(c => c.items.forEach(([title,id,year]) => ALL.push({title,id,year:year||"",cat:c.key,catName:c.name,m:MEDIA[id]||{files:[],cover:null}})));
 
@@ -405,7 +442,7 @@ function render(){
   const c=CATS.find(x=>x.key===current);
   list = c ? ALL.filter(p=>p.cat===current) : ALL;
   $("#catTitle").textContent = c ? c.name : "전체 작업";
-  $("#catDesc").textContent = c ? c.desc : "2021년부터 이어온 커머스 디자인 작업. 상세페이지와 이벤트페이지를 중심으로 SNS 광고, 패키지, 오프라인 매체까지.";
+  $("#catDesc").textContent = c ? c.desc : "2021년부터 이어온 브랜드 디자인 작업. 리브랜딩과 패키지부터 상세페이지, 캠페인, 매장 연출까지.";
   $("#catCount").textContent = list.length + " projects";
   grid.innerHTML = list.map((p,i)=>`<button class="card" data-i="${i}"><div class="thumb">${thumb(p)}</div><div class="cap"><span class="t">${esc(p.title)}</span><span class="c">${esc(p.catName)}</span><span class="y">${p.year}</span></div></button>`).join("");
   nav.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===current));
@@ -559,7 +596,7 @@ function zigtagCase(){
   </div></section>
   </div>`;
 }
-document.getElementById("vBody").addEventListener("click",e=>{
+document.addEventListener("click",e=>{
   const b=e.target.closest("[data-open]"); if(!b) return;
   current="all"; render(); const i=list.findIndex(x=>x.id===b.dataset.open); if(i>=0) openViewer(i);
 });
@@ -579,7 +616,7 @@ function ticker(el,words,sep){
   const one=words.map(w=>`<span class="wide">${w}</span>${sep}`).join("");
   el.innerHTML=one.repeat(6)+one.repeat(6);
 }
-ticker(document.getElementById("t1"),["Detail Page","Event Page","Social Ads","Package","Branding","VMD","Outdoor Ads","Web m/pc"],'<span class="wide">✦</span>');
+ticker(document.getElementById("t1"),["Brand Identity","Repositioning","Packaging","Brand Commerce","Campaign","Retail & VMD"],'<span class="wide">✦</span>');
 ticker(document.getElementById("t2"),["Selected Work"],'<span class="wide dot">✦</span>');
 
 /* 대표 이미지 3장 */
@@ -596,8 +633,7 @@ document.getElementById("hero").addEventListener("click",e=>{
 
 /* 숫자 */
 document.getElementById("sProjects").textContent=ALL.length;
-document.getElementById("sDetail").textContent=ALL.filter(p=>p.cat==="detail").length;
-document.getElementById("sSns").textContent=ALL.filter(p=>p.cat==="sns").length;
+document.getElementById("sPkg").textContent=ALL.filter(p=>p.cat==="package").length;
 </script>
 
 </body>
