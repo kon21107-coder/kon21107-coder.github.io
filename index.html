@@ -163,6 +163,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .vbar{position:sticky;top:0;z-index:2;background:var(--bg);display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px;border-bottom:1px solid var(--fg);max-width:1000px;margin:0 auto}
 .vbar h3{margin:0;font-size:16px;font-weight:700}
 .meta{font-family:var(--mono);font-size:11px;color:var(--muted);display:block;margin-top:2px}
+.vt{min-width:0;flex:1}
+.back{padding:8px 0;font-size:12px;flex:none;margin-right:8px}
+.back:hover{text-decoration:underline;text-underline-offset:4px}
 .close{padding:8px 16px;background:var(--lime);border:1px solid var(--fg);font-size:12px;flex:none}
 .vbody{max-width:1000px;margin:0 auto;padding-block:28px 56px}
 .vbody img,.vbody video{width:100%;display:block}
@@ -450,7 +453,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle">
   <div class="vbar">
-    <div style="min-width:0"><h3 id="vTitle"></h3><span class="meta" id="vMeta"></span></div>
+    <button class="back wide" id="vBack" aria-label="목록으로 돌아가기">← Back</button>
+    <div class="vt"><h3 id="vTitle"></h3><span class="meta" id="vMeta"></span></div>
     <button class="close wide" id="vClose">Close</button>
   </div>
   <div class="vbody" id="vBody"></div>
@@ -560,7 +564,7 @@ function openViewer(i){
     const prev=list[i-1], next=list[i+1];
     $("#vPrev").textContent=prev?"← "+prev.title:""; $("#vPrev").hidden=!prev;
     $("#vNext").textContent=next?next.title+" →":""; $("#vNext").hidden=!next;
-    if(viewer.hidden){lastFocus=document.activeElement}
+    if(viewer.hidden){lastFocus=document.activeElement; pushViewer()}
     viewer.hidden=false; viewer.scrollTop=0; document.body.style.overflow="hidden"; $("#vClose").focus();
     return;
   }
@@ -580,12 +584,18 @@ function openViewer(i){
   const prev=list[i-1], next=list[i+1];
   $("#vPrev").textContent=prev?"← "+prev.title:""; $("#vPrev").hidden=!prev;
   $("#vNext").textContent=next?next.title+" →":""; $("#vNext").hidden=!next;
-  if(viewer.hidden){lastFocus=document.activeElement}
+  if(viewer.hidden){lastFocus=document.activeElement; pushViewer()}
   viewer.hidden=false; viewer.scrollTop=0; document.body.style.overflow="hidden"; $("#vClose").focus();
 }
-function closeViewer(){viewer.hidden=true;document.body.style.overflow="";lastFocus&&lastFocus.focus()}
+/* 브라우저·휴대폰 뒤로가기로도 작업 화면이 닫히도록 */
+let pushed=false;
+function pushViewer(){ try{history.pushState({sk:"viewer"},"");pushed=true}catch(_){pushed=false} }
+function hideViewer(){viewer.hidden=true;document.body.style.overflow="";lastFocus&&lastFocus.focus()}
+function closeViewer(){ if(pushed&&history.state&&history.state.sk==="viewer"){history.back()} else {pushed=false;hideViewer()} }
+addEventListener("popstate",()=>{ if(!viewer.hidden){pushed=false;hideViewer()} });
 grid.addEventListener("click",e=>{const c=e.target.closest(".card"); if(c) openViewer(+c.dataset.i)});
 $("#vClose").onclick=closeViewer;
+$("#vBack").onclick=closeViewer;
 $("#vPrev").onclick=()=>openViewer(vi-1);
 $("#vNext").onclick=()=>openViewer(vi+1);
 addEventListener("keydown",e=>{
