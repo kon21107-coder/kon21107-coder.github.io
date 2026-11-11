@@ -674,7 +674,7 @@ function render(){
   const c=CATS.find(x=>x.key===current);
   list = c ? ALL.filter(p=>p.cat===current) : ALL;
   $("#catTitle").textContent = c ? c.name : "전체 작업";
-  $("#catDesc").textContent = c ? c.desc : "9년간의 브랜드 디자인 작업 중 일부. 리브랜딩과 패키지부터 상세페이지, 캠페인, 매장 연출까지.";
+  $("#catDesc").textContent = c ? (c.desc||"") : "";
   $("#catCount").textContent = list.length + " projects";
   grid.innerHTML = list.map((p,i)=>`<button class="card" data-i="${i}"><div class="thumb">${thumb(p)}</div><div class="cap"><span class="t">${esc(p.title)}</span><span class="c">${esc(p.catName)}</span><span class="y">${p.year}</span></div></button>`).join("");
   nav.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===current));
