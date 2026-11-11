@@ -80,6 +80,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* featured case */
 .featured{padding-block:24px 72px}
 .feat-head{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:10px;margin-bottom:28px}
+.label.sec{display:flex!important;flex-basis:100%;width:100%;align-items:center;gap:10px;color:var(--fg)!important;font-weight:800;font-size:16px;font-variation-settings:"wdth" 118;letter-spacing:.06em;margin-bottom:6px}
+.label.sec::before{content:"";width:12px;height:12px;background:var(--lime);border:1.5px solid var(--fg);flex:none}
 .label.muted{color:var(--muted)}
 .feat{padding:0;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;text-align:left;width:100%;align-items:end}
 .feat-title{display:flex;flex-direction:column;gap:18px;padding-bottom:6px}
@@ -452,7 +454,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
   <section class="profile" id="about">
     <div class="intro-sum">
-      <span class="label">Summary</span>
+      <span class="label sec">Summary</span>
       <p class="statement">브랜드의 시각적 방향을 제안하고, 이를 제품·콘텐츠·패키지·오프라인 공간까지 <mark>일관되게 확장</mark>하는 브랜드 디자이너입니다.</p>
       <ol class="sum-list">
         <li><span class="n">01</span><p>뷰티(스킨·헤어)·유아동 브랜드 중심 자사몰 기반 커머스 디자인 실무 — 신제품·리뉴얼 상세페이지 <b>29건 이상</b> 기획·디자인</p></li>
@@ -465,7 +467,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     </div>
     <div class="intro-side">
       <div class="skill">
-        <span class="label">Design Skill</span>
+        <span class="label sec">Design Skill</span>
         <ul class="bars">
           <li><span class="nm">상세페이지 기획 · 디자인</span><span class="bar" style="--v:95%"></span><span class="v">95</span></li>
           <li><span class="nm">BI / BX · 브랜드 디자인</span><span class="bar" style="--v:90%"></span><span class="v">90</span></li>
@@ -475,7 +477,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         </ul>
       </div>
       <div class="skill">
-        <span class="label">Tool</span>
+        <span class="label sec">Tool</span>
         <ul class="tool-grid">
           <li><span>Figma</span><i class="hi">상</i></li>
           <li><span>Photoshop</span><i class="hi">상</i></li>
@@ -489,7 +491,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
     </div>
     <div class="fields">
-      <span class="label">Expertise</span>
+      <span class="label sec">Expertise</span>
       <span class="f">상세페이지</span>
       <span class="f">광고 크리에이티브</span>
       <span class="f">자사몰 프로모션</span>
@@ -514,7 +516,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 
   <section class="exp" id="experience">
-    <span class="label">Experience</span>
+    <span class="label sec">Experience</span>
     <ol class="exp-list">
       <li>
         <span class="when">2026.03 — 현재</span>
