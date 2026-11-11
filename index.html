@@ -500,7 +500,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </section>
 
   <div class="ticker" aria-hidden="true"><div class="run" id="t1"></div></div>
-  <div class="hero" id="hero"></div>
 
   <section class="stats" aria-label="작업 요약">
     <div class="stat"><span class="label">Projects</span><b id="sProjects">133</b></div>
@@ -1005,18 +1004,6 @@ function ticker(el,words,sep){
 }
 ticker(document.getElementById("t1"),["Brand Identity","Repositioning","Packaging","Brand Commerce","Campaign","Retail & VMD"],'<span class="wide">✦</span>');
 ticker(document.getElementById("t2"),["Selected Work"],'<span class="wide dot">✦</span>');
-
-/* 대표 이미지 3장 */
-const HERO=["pdrn","16a006849402b6","16a006a6c04570"];
-document.getElementById("hero").innerHTML=HERO.map(id=>{
-  const p=ALL.find(x=>x.id===id); if(!p) return "";
-  const f=p.m.cover||p.m.files.find(x=>typeof x==="string");
-  return `<figure data-id="${id}" style="cursor:pointer">${f?mediaTag(`images/${id}/${f}`,p.title,false):""}<figcaption>${esc(p.title)}</figcaption></figure>`;
-}).join("");
-document.getElementById("hero").addEventListener("click",e=>{
-  const f=e.target.closest("figure"); if(!f) return;
-  current="all"; render(); const i=list.findIndex(x=>x.id===f.dataset.id); if(i>=0) openViewer(i);
-});
 
 /* 숫자 */
 document.getElementById("sProjects").textContent=ALL.length;
