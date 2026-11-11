@@ -710,7 +710,7 @@ function openViewer(i){
     $("#vBody").innerHTML=introHTML(p.id)+tiktokHTML();
     initTK();
   } else if(p.m.ai){
-    const outs=p.m.files.map((f,k)=>`<figure class="ai-out"><img ${k?'loading="lazy"':''} decoding="async" src="images/${p.id}/${f}" alt="${esc(p.title)} AI 연출 컷 ${k+1}"><figcaption><span>OUTPUT ${String(k+1).padStart(2,"0")}</span>${esc((p.m.caps||[])[k]||"AI 연출 컷")}</figcaption></figure>`);
+    const outs=p.m.files.map((f,k)=>`<figure class="ai-out"><img ${k?'loading="lazy"':''} decoding="async" src="images/${p.id}/${f}?v=2" alt="${esc(p.title)} AI 연출 컷 ${k+1}"><figcaption><span>OUTPUT ${String(k+1).padStart(2,"0")}</span>${esc((p.m.caps||[])[k]||"AI 연출 컷")}</figcaption></figure>`);
     const src=p.m.src?`<figure class="ai-src"><img decoding="async" src="images/${p.id}/${p.m.src}" alt="${esc(p.title)} 원본 제품 컷"><figcaption><span>INPUT</span>원본 제품 컷</figcaption></figure><div class="ai-arrow" aria-hidden="true">→</div>`:"";
     $("#vBody").innerHTML=introHTML(p.id)+`<div class="ai-flow">${src}${outs[0]||""}</div>`+(outs.length>1?`<div class="ai-more">${outs.slice(1).join("")}</div>`:"");
   } else if(p.m.ba){
