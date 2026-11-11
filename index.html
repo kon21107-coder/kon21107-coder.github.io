@@ -92,6 +92,32 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .feat-ba img{display:block;width:100%;aspect-ratio:646/465;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .feat:hover .feat-ba img{transform:scale(1.03)}
 .feat-ba figcaption{margin-top:8px;color:var(--muted)}
+/* intro (profile) */
+.profile{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px 64px;border-top:1px solid var(--line);padding:12px 0 72px;margin-top:8px}
+.profile .label{display:block;color:var(--muted)}
+.profile .statement{margin:14px 0 28px;font-size:clamp(20px,2.1vw,28px)}
+.sum-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
+.sum-list li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;padding:13px 0;border-bottom:1px solid var(--hair)}
+.sum-list .n{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:3px}
+.sum-list p{margin:0;font-size:14.5px;line-height:1.7;color:#2c2c29;word-break:keep-all}
+.sum-list b{font-weight:700;background:linear-gradient(transparent 58%,var(--lime) 58%)}
+.intro-side{display:flex;flex-direction:column;gap:34px;padding-top:4px}
+.bars{list-style:none;margin:14px 0 0;padding:0}
+.bars li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 28px;gap:14px;align-items:center;padding:9px 0}
+.bars .nm{font-size:14px;word-break:keep-all}
+.bars .bar{position:relative;height:2px;background:var(--hair)}
+.bars .bar::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--v);background:var(--fg)}
+.bars .bar::after{content:"";position:absolute;top:50%;left:var(--v);width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--lime);border:1.5px solid var(--fg)}
+.bars .v{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+.tool-grid{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
+.tool-grid li{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--hair);font-size:14px}
+.tool-grid i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--muted);padding:1px 6px;border:1px solid var(--hair)}
+.tool-grid i.hi{background:var(--lime);border-color:var(--lime);color:var(--fg)}
+.tool-note{margin:10px 0 0;font-size:12px;color:var(--muted)}
+.fields{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 8px;align-items:center;border-top:1px solid var(--hair);padding-top:18px}
+.fields .label{margin-right:10px}
+.fields .f{border:1px solid var(--fg);padding:6px 12px;font-size:13px;border-radius:999px}
+@media (max-width:860px){.profile{grid-template-columns:minmax(0,1fr);gap:36px;padding-bottom:48px}.bars li{grid-template-columns:minmax(0,1fr) 90px 26px}}
 /* about */
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px 56px;padding-block:20px 88px;border-top:1px solid var(--line);padding-top:10px}
 .about > .label{grid-column:1/-1}
@@ -413,8 +439,58 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <h1 class="hero-name" id="top"><span>Sera Kim</span></h1>
   <div class="sub">
     <h2 class="wide">Brand Designer</h2>
-    <p>브랜드의 방향을 제안하고,<br>일관된 경험으로 완성하는 디자이너.</p>
   </div>
+
+  <section class="profile" id="about">
+    <div class="intro-sum">
+      <span class="label">Summary</span>
+      <p class="statement">브랜드의 시각적 방향을 제안하고, 이를 제품·콘텐츠·패키지·오프라인 공간까지 <mark>일관되게 확장</mark>하는 브랜드 디자이너입니다.</p>
+      <ol class="sum-list">
+        <li><span class="n">01</span><p>뷰티(스킨·헤어)·유아동 브랜드 중심 자사몰 기반 커머스 디자인 실무 — 신제품·리뉴얼 상세페이지 <b>29건</b> 기획·디자인</p></li>
+        <li><span class="n">02</span><p>Meta 광고 구매 전환값 기준 상세페이지 <b>A/B 테스트</b> 설계·운영, 결과를 근거로 키비주얼·정보 순서 개선</p></li>
+        <li><span class="n">03</span><p>올리브영 프로모션·SNS 광고 소재, 신제품 키비주얼·출시 콘텐츠 등 마케팅 크리에이티브 제작</p></li>
+        <li><span class="n">04</span><p>1인 디자이너로 디자인 방향을 리딩하며 촬영 콘셉트·현장 디렉팅부터 상세페이지·광고 소재·패키지까지 출시 전 과정 운영</p></li>
+        <li><span class="n">05</span><p>아마존·틱톡샵 해외 판매 채널 디자인 운영, 말레이시아 Guardian·두바이 박람회 등 해외 오프라인 채널 제작물 대응</p></li>
+        <li><span class="n">06</span><p>생성형 AI(Magnific·ChatGPT)와 Premiere Pro·After Effects를 활용한 이미지·영상 콘텐츠 제작</p></li>
+      </ol>
+    </div>
+    <div class="intro-side">
+      <div class="skill">
+        <span class="label">Design Skill</span>
+        <ul class="bars">
+          <li><span class="nm">상세페이지 기획 · 디자인</span><span class="bar" style="--v:95%"></span><span class="v">95</span></li>
+          <li><span class="nm">BI / BX · 브랜드 디자인</span><span class="bar" style="--v:90%"></span><span class="v">90</span></li>
+          <li><span class="nm">촬영 디렉팅</span><span class="bar" style="--v:85%"></span><span class="v">85</span></li>
+          <li><span class="nm">광고 크리에이티브 (Meta · SNS)</span><span class="bar" style="--v:80%"></span><span class="v">80</span></li>
+          <li><span class="nm">자사몰 프로모션 · 이벤트 페이지</span><span class="bar" style="--v:80%"></span><span class="v">80</span></li>
+        </ul>
+      </div>
+      <div class="skill">
+        <span class="label">Tool</span>
+        <ul class="tool-grid">
+          <li><span>Figma</span><i class="hi">상</i></li>
+          <li><span>Photoshop</span><i class="hi">상</i></li>
+          <li><span>Magnific · ChatGPT</span><i class="hi">상</i></li>
+          <li><span>Illustrator</span><i class="hi">상</i></li>
+          <li><span>InDesign</span><i class="hi">상</i></li>
+          <li><span>Premiere Pro</span><i class="">중</i></li>
+          <li><span>After Effects</span><i class="">중</i></li>
+        </ul>
+        <p class="tool-note">상 실무에서 바로 활용 가능 · 중 기본 기능 활용 가능, 응용 시 서치 필요</p>
+      </div>
+    </div>
+    <div class="fields">
+      <span class="label">Expertise</span>
+      <span class="f">상세페이지</span>
+      <span class="f">광고 크리에이티브</span>
+      <span class="f">자사몰 프로모션</span>
+      <span class="f">촬영 디렉팅</span>
+      <span class="f">BI / BX</span>
+      <span class="f">패키지</span>
+      <span class="f">UI/UX</span>
+      <span class="f">POP / VMD</span>
+    </div>
+  </section>
 
   <div class="ticker" aria-hidden="true"><div class="run" id="t1"></div></div>
   <div class="hero" id="hero"></div>
@@ -449,23 +525,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     </button>
   </section>
 
-  <section class="about" id="about">
-    <span class="label">About</span>
-    <div>
-      <p class="statement">브랜드의 시각적 방향을 제안하고, 이를 제품·콘텐츠·패키지·오프라인 공간까지 <mark>일관되게 확장</mark>하는 브랜드 디자이너입니다.</p>
-      <p class="about-body">브랜딩과 이커머스 디자인을 기반으로 리브랜딩, 신제품 론칭, 촬영 아트디렉션, 패키지 디자인 및 VMD 등 다양한 고객 접점에서 브랜드 경험을 구축해 왔습니다. 주어진 디자인을 만드는 데서 그치지 않고, 브랜드가 전달해야 할 가치와 방향을 먼저 고민합니다. 제품의 특성과 핵심 소구점을 분석하고 정보 구조, 이미지 표현, 타이포그래피를 조정해 메시지가 더 명확하고 매력적으로 전달되도록 설계합니다.</p>
-      <div class="me">
-        <div class="av">SK</div>
-        <div><span class="wide" style="font-size:12px">Sera Kim</span><small>Brand Designer</small></div>
-      </div>
-    </div>
-    <ol class="disc">
-      <li><span class="wide">Brand Identity &amp; Visual Direction</span><small>리브랜딩 · 비주얼 콘셉트 · 키비주얼 · 톤앤매너</small></li>
-      <li><span class="wide">Art Direction &amp; Content</span><small>제품·모델 촬영 기획 · 이미지 연출 · 광고 콘텐츠</small></li>
-      <li><span class="wide">Packaging &amp; Retail</span><small>패키지 · 인쇄 아트워크 · VMD · POP · 해외 유통</small></li>
-      <li><span class="wide">Digital &amp; E-commerce</span><small>상세페이지 · 자사몰 · UI/UX · HTML/CSS</small></li>
-    </ol>
-  </section>
 
   <section class="exp" id="experience">
     <span class="label">Experience</span>
@@ -491,7 +550,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <p>여행사 웹디자인팀에서 여행 상품 웹·모바일 프로모션과 이벤트 디자인, 반응형 퍼블리싱, POP·편집물 등 온·오프라인 홍보물.</p>
       </li>
     </ol>
-    <p class="tools"><span class="label">Tools</span>Figma · Photoshop · Magnific · ChatGPT(생성형 AI) · Illustrator · InDesign · Premiere Pro · After Effects</p>
   </section>
 
   <div class="ticker big" aria-hidden="true"><div class="run" id="t2"></div></div>
